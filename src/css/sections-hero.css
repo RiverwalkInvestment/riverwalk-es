@@ -95,9 +95,9 @@
 /* Staggered entry */
 .hero__stagger {
   opacity: 0;
-  transform: translateY(20px);
-  animation: heroFadeUp 0.8s ease forwards;
-  animation-delay: calc(var(--i) * 0.15s + 0.3s);
+  transform: translateY(18px);
+  animation: heroFadeUp 0.9s var(--ease-premium) forwards;
+  animation-delay: calc(var(--i) * 0.12s + 0.25s);
 }
 
 @keyframes heroFadeUp {

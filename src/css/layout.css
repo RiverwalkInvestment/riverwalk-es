@@ -42,7 +42,7 @@ h2 {
   font-size: clamp(1.75rem, 4vw, 3rem);
   line-height: 1.15;
   letter-spacing: -0.015em;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 h3 {

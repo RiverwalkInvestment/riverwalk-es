@@ -11,7 +11,7 @@
   border: 1px solid var(--text-primary);
   background: none;
   cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
 }
 
 .btn:hover {
