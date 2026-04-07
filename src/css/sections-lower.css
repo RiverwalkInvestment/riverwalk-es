@@ -1,115 +1,320 @@
-/* Sections 6–9 + Footer */
+/* Sections: Inversores snap, FAQ, Operaciones cards, Risk, Contact, Footer */
 
-/* SECTION 06 — Control de riesgo (fondo oscuro) */
-#riesgo {
-  padding-block: var(--space-xl);
+/* ─── PARA INVERSORES — Horizontal snap (Section 8) ─────────────────────────── */
+
+#inversores {
+  background-color: var(--bg-base);
+  padding-block: var(--section-pad);
+  overflow: hidden;
+}
+#inversores .section-intro { margin-bottom: var(--space-lg); }
+
+.inversores-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.inversores-scroll::-webkit-scrollbar { display: none; }
+
+.inversores-card {
+  flex-shrink: 0;
+  width: 100vw;
+  scroll-snap-align: start;
+  background-color: var(--bg-warm);
+  padding: var(--section-pad) var(--margin-outer);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60vh;
+  border-right: 1px solid var(--border);
+}
+.inversores-card__num {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
+  color: rgba(15,19,26,0.10);
+  margin-bottom: 1rem;
+  display: block;
+}
+.inversores-card h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  max-width: 20ch;
+}
+.inversores-card .body-text { max-width: 50ch; }
+
+.inversores-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1.5rem var(--margin-outer);
+  background-color: var(--bg-base);
+}
+.inversores-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--border);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+.inversores-dot.is-active {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
 }
 
-#riesgo .body-text {
-  color: rgba(240, 239, 234, 0.6);
+/* ─── FAQ (Section 9 — pure CSS accordion) ───────────────────────────────────── */
+
+#faq {
+  background-color: var(--bg-base);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-block: 0;
+}
+.faq-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  padding: 0.35em 1em;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+.faq-layout__left h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+.faq-accordion { border-top: 1px solid var(--border); }
+.faq-accordion__item { border-bottom: 1px solid var(--border); }
+.faq-accordion__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+.faq-accordion__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 1.5rem 0;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  user-select: none;
+  transition: color var(--transition-base);
+}
+.faq-accordion__label:hover { color: var(--text-muted); }
+.faq-accordion__chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.35s var(--ease-premium);
+  color: var(--text-muted);
+}
+.faq-accordion__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-premium);
+}
+.faq-accordion__inner { overflow: hidden; }
+.faq-accordion__content {
+  padding-bottom: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--text-body);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+.faq-accordion__input:checked ~ .faq-accordion__label .faq-accordion__chevron { transform: rotate(180deg); }
+.faq-accordion__input:checked ~ .faq-accordion__body { grid-template-rows: 1fr; }
+
+/* ─── OPERACIONES / NEWS (Section 10) ───────────────────────────────────────── */
+
+#operaciones-news {
+  background-color: var(--bg-base);
+  padding-block: var(--section-pad);
+  overflow: hidden;
+}
+
+#operaciones-news .section-intro {
+  padding-inline: var(--margin-outer);
+  max-width: var(--container);
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.ops-news-track {
+  display: flex;
+  gap: 1.5rem;
+  padding-inline: var(--margin-outer);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+}
+
+.ops-news-track:active { cursor: grabbing; }
+.ops-news-track::-webkit-scrollbar { display: none; }
+
+.ops-news-card {
+  flex-shrink: 0;
+  width: clamp(240px, 24vw, 310px);
+  background-color: var(--bg-warm);
+  padding: var(--space-md);
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow var(--transition-base);
+}
+
+.ops-news-card:hover {
+  box-shadow: 0 4px 24px rgba(15,19,26,0.07);
+}
+
+.ops-news-card__year {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ops-news-card__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 400;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.ops-news-card__zone {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body);
+  color: var(--text-muted);
+}
+
+.ops-news-card__status {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  padding: 0.35em 1em;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.ops-news-card__status--active {
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+  background-color: rgba(113,203,225,0.12);
+}
+
+/* ─── CONTROL DE RIESGO / ABOUT (Section 11) ────────────────────────────────── */
+
+#riesgo {
+  background-color: var(--bg-base);
+  padding-block: var(--section-pad);
+  border-top: 1px solid var(--border);
+}
+
+#riesgo h2 {
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--space-md);
+}
+
+#riesgo > .container > .grid-60-40 > div:first-child .body-text {
+  max-width: 44ch;
 }
 
 .risk-grid {
-  border-top: 1px solid rgba(240, 239, 234, 0.12);
-  border-left: 1px solid rgba(240, 239, 234, 0.12);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
 }
 
 .risk-card {
   padding: var(--space-md);
-  border-right: 1px solid rgba(240, 239, 234, 0.12);
-  border-bottom: 1px solid rgba(240, 239, 234, 0.12);
-  transition: background-color var(--transition-base), transform var(--transition-base);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-base);
 }
 
 .risk-card:hover {
-  background-color: rgba(240, 239, 234, 0.05);
-  transform: scale(1.015);
+  background-color: rgba(15,19,26,0.03);
 }
 
 .risk-card__cat {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
   text-transform: uppercase;
-  color: rgba(240, 239, 234, 0.35);
+  color: var(--text-muted);
   display: block;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0.5rem;
 }
 
 .risk-card h3 {
-  color: var(--text-inverse);
+  font-size: 1rem;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
 .risk-card .body-text {
-  font-size: 0.9375rem;
-  color: rgba(240, 239, 234, 0.55);
+  font-size: var(--text-body);
+  color: var(--text-muted);
+  max-width: none;
 }
 
-/* SECTION 07 — Para inversores */
-#inversores {
-  padding-block: var(--space-xl);
-}
+/* ─── CONTACT (Section 12) ───────────────────────────────────────────────────── */
 
-.investor-grid {
-  border-top: 1px solid rgba(240, 239, 234, 0.12);
-  border-left: 1px solid rgba(240, 239, 234, 0.12);
-}
-
-.investor-card {
-  padding: var(--space-md) var(--space-md) var(--space-lg);
-  border-right: 1px solid rgba(240, 239, 234, 0.12);
-  border-bottom: 1px solid rgba(240, 239, 234, 0.12);
-  transition: background-color var(--transition-base), transform var(--transition-base);
-}
-
-.investor-card:hover {
-  background-color: rgba(240, 239, 234, 0.05);
-  transform: scale(1.015);
-}
-
-.investor-card .step-number {
-  margin-bottom: var(--space-sm);
-}
-
-.investor-card .body-text {
-  font-size: 0.9375rem;
-}
-
-/* SECTION 08 — Alineación */
-#alineacion {
-  padding-block: var(--space-xl);
-  border-top: 1px solid var(--border);
-}
-
-.lede {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-  line-height: 1.2;
-  margin-bottom: var(--space-xl);
-  max-width: 20ch;
-}
-
-#alineacion .grid-3-col > div {
-  padding-right: var(--space-md);
-}
-
-#alineacion .body-text {
-  font-size: 0.9375rem;
-}
-
-/* SECTION 09 — Contacto */
 #contacto {
-  padding-block: var(--space-xl);
+  background-color: var(--bg-warm);
+  padding-block: var(--section-pad);
 }
 
 .contacto__text {
   padding-right: var(--space-lg);
 }
 
+.contacto__text h2 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
 .disclaimer {
   margin-top: var(--space-lg);
-  font-size: 0.8125rem;
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--text-muted);
   font-weight: 300;
@@ -120,9 +325,113 @@
   padding-top: var(--space-md);
 }
 
-/* Footer */
+/* Form components */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-field label {
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(15,19,26,0.20);
+  padding: 0.5em 0;
+  font-size: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-base);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--text-primary);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-field select { cursor: pointer; }
+
+.form-success {
+  padding: var(--space-lg) 0;
+}
+
+.form-success p {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 35ch;
+  color: var(--text-primary);
+}
+
+/* ─── BUTTONS ────────────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-body);
+  letter-spacing: 0.02em;
+  padding: 0.75em 2em;
+  border: 1px solid var(--text-primary);
+  background: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.btn--solid {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.btn--solid:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  margin-top: var(--space-sm);
+}
+
+/* ─── FOOTER (Section 13) ─────────────────────────────────────────────────────── */
+
 .site-footer {
   border-top: 1px solid var(--border);
+  background-color: var(--bg-base);
   padding-block: var(--space-md);
 }
 
@@ -133,59 +442,55 @@
   gap: var(--space-md);
 }
 
+.site-footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .site-footer__wordmark {
   font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
 }
 
-.site-footer__copy {
-  font-size: 0.8125rem;
+.site-footer__tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--text-muted);
   font-weight: 300;
 }
 
-.site-footer__legal {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  max-width: 30ch;
-  text-align: right;
+.site-footer__nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-/* Mobile adjustments */
+.site-footer__nav a {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.site-footer__nav a:hover { color: var(--text-primary); }
+
+.site-footer__right { text-align: right; }
+.site-footer__copy { font-size: var(--text-body); color: var(--text-muted); font-weight: 300; display: block; }
+.site-footer__legal { font-size: var(--text-small); color: var(--text-muted); font-weight: 300; max-width: 30ch; text-align: right; margin-top: 0.25rem; }
+
+/* ─── MOBILE ──────────────────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .contacto__text {
-    padding-right: 0;
-  }
-
-  #alineacion .grid-3-col > div {
-    padding-right: 0;
-  }
-
-  .site-footer__inner {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-sm);
-  }
-
-  .site-footer__legal {
-    text-align: center;
-    max-width: none;
-  }
-
-  .risk-grid {
-    border-left: none;
-  }
-
-  .risk-card {
-    border-left: 1px solid rgba(240, 239, 234, 0.12);
-  }
-
-  .investor-grid {
-    border-left: none;
-  }
-
-  .investor-card {
-    border-left: 1px solid rgba(240, 239, 234, 0.12);
-  }
+  .contacto__text { padding-right: 0; }
+  .inversores-card { width: 100vw; min-height: 50vh; }
+  .site-footer__inner { flex-direction: column; text-align: center; gap: var(--space-sm); }
+  .site-footer__legal, .site-footer__right { text-align: center; }
+  .site-footer__nav { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .risk-grid { border-left: none; }
+  .risk-card { border-left: 1px solid var(--border); }
 }

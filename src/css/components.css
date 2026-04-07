@@ -1,125 +1,56 @@
-/* Shared Components — Buttons, Pills, Form, Cards */
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  padding: 0.75em 2em;
-  border: 1px solid var(--text-primary);
-  background: none;
-  cursor: pointer;
-  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
-}
-
-.btn:hover {
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-}
-
-.btn--solid {
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-}
-
-.btn--solid:hover {
-  background-color: transparent;
-  color: var(--text-primary);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+/* Shared Components — Pills, Cards (nfinitepaper light scheme) */
 
 /* Pills */
 .pill {
   display: inline-block;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
   text-transform: uppercase;
   padding: 0.3em 1em;
-  border: 1px solid var(--border-dark);
-  border-radius: 999px;
+  border: 1px solid var(--border);
   color: var(--text-muted);
   line-height: 1;
+  border-radius: 999px;
 }
 
-/* Form */
-.contact-form {
+/* Marquee */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-block: 1rem;
+  background-color: var(--bg-base);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee__track {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  will-change: transform;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-}
-
-.form-field label {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-dark);
-  padding: 0.5em 0;
-  font-size: 1rem;
-  font-weight: 300;
-  outline: none;
-  transition: border-color var(--transition-base);
-  border-radius: 0;
-  -webkit-appearance: none;
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-  border-bottom-color: var(--text-primary);
-}
-
-.form-field textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.form-field select {
-  cursor: pointer;
-}
-
-.contact-form .btn {
-  align-self: flex-start;
-  margin-top: var(--space-sm);
-}
-
-/* Form success */
-.form-success {
-  padding: var(--space-lg) 0;
-}
-
-.form-success p {
+.marquee__item {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  max-width: 35ch;
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
+  color: var(--text-muted);
+  padding-inline: 1.5rem;
+  flex-shrink: 0;
 }
 
-/* Form error */
-.form-error {
-  color: #a33;
-  font-size: 0.8125rem;
-  margin-top: var(--space-xs);
+.marquee__sep {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--border);
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .marquee { display: none; }
 }

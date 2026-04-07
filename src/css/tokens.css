@@ -1,4 +1,4 @@
-/* Design Tokens — Riverwalk */
+/* Design Tokens — Riverwalk · nfinitepaper visual system */
 
 @font-face {
   font-family: 'Geist';
@@ -33,43 +33,54 @@
 }
 
 :root {
-  /* Typography */
+  /* Fonts */
   --font-display: 'Instrument Serif', serif;
   --font-body: 'Geist', -apple-system, sans-serif;
 
-  /* Colors — dark scheme */
-  --bg-base: #0B0B09;
-  --bg-warm: #131311;
-  --bg-dark: #000000;
-  --bg-light: #F5F4EF;
-  --text-primary: #F0EFEA;
-  --text-muted: #7A7A72;
-  --text-inverse: #0B0B09;
-  --border: #222220;
-  --border-dark: #333331;
-  --border-light: #E4E2DA;
+  /* Colors — nfinitepaper light scheme */
+  --bg-base:      #fffaf6;
+  --bg-warm:      #e9e2d2;
+  --bg-blue:      #dff2f3;
+  --bg-dark:      #0f131a;
+  --text-primary: #0f131a;
+  --text-muted:   rgba(15,19,26,0.60);
+  --text-inverse: #fffaf6;
+  --border:       rgba(15,19,26,0.12);
+  --accent-blue:  #71cbe1;
+  --accent-water: #8ab4fc;
+
+  /* Typography scale */
+  --text-display: clamp(2.5rem, 7vw, 6.25rem);
+  --text-h2-lg:   clamp(1.5625rem, 4vw, 3.75rem);
+  --text-h2:      clamp(1.25rem, 2.5vw, 2.25rem);
+  --text-h3:      clamp(1.125rem, 2.2vw, 1.3125rem);
+  --text-body:    0.8125rem;
+  --text-small:   0.6875rem;
+
+  --lh-tight:     1.05;
+  --lh-normal:    1.2;
+  --ls-tight:     -0.03em;
+  --ls-none:      0em;
+  --ls-caps:      0.08em;
+
+  /* Layout */
+  --margin-outer: max(3.2vw, 24px);
+  --section-pad:  clamp(2.5rem, 6vw, 6rem);
+  --container:    1280px;
 
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 8rem;
-  --space-2xl: 12rem;
-
-  /* Layout */
-  --container: 1280px;
-  --container-narrow: 960px;
+  --space-lg: 3rem;
+  --space-xl: 6rem;
 
   /* Transitions */
-  --ease-premium: cubic-bezier(0.16, 1.08, 0.38, 0.98);
+  --ease-premium:    cubic-bezier(0.16, 1.08, 0.38, 0.98);
   --transition-base: 0.35s var(--ease-premium);
   --transition-slow: 0.7s var(--ease-premium);
 
-  /* Reveal */
-  --reveal-duration: 0.8s;
-
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -77,6 +88,7 @@ body {
   font-weight: 300;
   color: var(--text-primary);
   background-color: var(--bg-base);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }

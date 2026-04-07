@@ -1,6 +1,7 @@
-/* Hero Section + Fixed Nav */
+/* Hero Section + Fixed Nav — nfinitepaper style */
 
-/* Fixed Navigation */
+/* ─── FIXED NAV ──────────────────────────────────────────────────────────────── */
+
 .nav {
   position: fixed;
   top: 0;
@@ -10,15 +11,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  transition: background-color var(--transition-base), backdrop-filter var(--transition-base);
+  padding: 1.25rem var(--margin-outer);
+  transition:
+    background-color var(--transition-base),
+    backdrop-filter var(--transition-base),
+    border-color var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+/* Hero is dark — nav text should be cream */
+.nav--dark-bg .nav__wordmark,
+.nav--dark-bg .nav__links a,
+.nav--dark-bg .nav__wordmark-sub {
+  color: var(--text-inverse);
+}
+
+.nav--dark-bg .nav__cta {
+  border-color: var(--text-inverse);
+  color: var(--text-inverse);
+}
+
+.nav--dark-bg .nav__cta:hover {
+  background-color: var(--text-inverse);
+  color: var(--bg-dark);
 }
 
 .nav.is-scrolled {
-  background-color: rgba(11, 11, 9, 0.92);
+  background-color: rgba(255,250,246,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom-color: var(--border);
+}
+
+.nav.is-scrolled .nav__wordmark,
+.nav.is-scrolled .nav__links a,
+.nav.is-scrolled .nav__wordmark-sub {
+  color: var(--text-primary);
+}
+
+.nav.is-scrolled .nav__cta {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.nav.is-scrolled .nav__cta:hover {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
 .nav__wordmark {
@@ -26,32 +70,62 @@
   font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: -0.01em;
+  color: var(--text-inverse);
+  transition: color var(--transition-base);
 }
 
 .nav__wordmark-sub {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.8125rem;
-  color: var(--text-muted);
+  font-size: var(--text-body);
+  color: rgba(255,250,246,0.55);
+  transition: color var(--transition-base);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__links a {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body);
+  color: rgba(255,250,246,0.75);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.nav__links a:hover {
+  color: var(--text-inverse);
 }
 
 .nav__cta {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  font-size: var(--text-body);
+  letter-spacing: 0.02em;
   padding: 0.5em 1.25em;
-  border: 1px solid var(--text-primary);
-  border-radius: 0;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  border: 1px solid var(--text-inverse);
+  color: var(--text-inverse);
+  text-decoration: none;
+  background: none;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
+  cursor: pointer;
 }
 
 .nav__cta:hover {
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
+  background-color: var(--text-inverse);
+  color: var(--bg-dark);
 }
 
-/* Hero */
+/* ─── HERO ───────────────────────────────────────────────────────────────────── */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -59,42 +133,49 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-.hero__ghost {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(30vw, 40vw, 50vw);
-  line-height: 1;
-  color: var(--text-primary);
-  opacity: 0.055;
-  pointer-events: none;
-  user-select: none;
-  will-change: transform;
+  background-color: var(--bg-dark);
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
-  text-align: left;
-  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.hero__content h1 {
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-md);
+/* Hero badge/tag */
+.hero__badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--text-inverse);
+  border: 1px solid rgba(255,250,246,0.30);
+  padding: 0.4em 1.2em;
+  border-radius: 999px;
+  opacity: 0;
 }
 
-.hero__content .body-text {
+.hero h1 {
+  color: var(--text-inverse);
+  text-align: center;
+  max-width: 14ch;
+  margin: 0;
+}
+
+.hero .hero__sub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body);
+  color: rgba(255,250,246,0.60);
   max-width: 50ch;
-}
-
-/* Hero stagger — managed by GSAP (gsap-animations.js) */
-.hero__stagger {
+  text-align: center;
+  line-height: 1.6;
   opacity: 0;
 }
 
@@ -113,24 +194,31 @@
 .hero__scroll {
   position: absolute;
   bottom: var(--space-md);
-  right: var(--space-md);
+  right: var(--margin-outer);
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-size: var(--text-small);
+  letter-spacing: var(--ls-caps);
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(255,250,246,0.40);
   writing-mode: vertical-rl;
+  opacity: 0;
 }
 
-/* Mobile */
+/* ─── MOBILE ──────────────────────────────────────────────────────────────────── */
+
 @media (max-width: 860px) {
+  .nav__links {
+    display: none;
+  }
+
   .nav__cta {
     display: none;
   }
 
   .hero__content {
-    padding-top: var(--space-lg);
+    padding-top: 5rem;
+    gap: 1.5rem;
   }
 
   .hero__scroll {

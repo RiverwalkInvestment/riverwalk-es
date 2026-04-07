@@ -14,10 +14,18 @@
 @media (prefers-reduced-motion: reduce) {
   [data-reveal],
   [data-reveal].is-visible,
-  .hero__stagger {
+  .hero__badge,
+  .hero .hero__sub,
+  .hero__scroll,
+  .hero h1 .word {
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
     animation: none !important;
+  }
+
+  .alineacion__panel {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
