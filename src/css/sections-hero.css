@@ -1,0 +1,137 @@
+/* Hero Section + Fixed Nav */
+
+/* Fixed Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  transition: background-color var(--transition-base), backdrop-filter var(--transition-base);
+}
+
+.nav.is-scrolled {
+  background-color: rgba(249, 249, 246, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav__wordmark {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.nav__wordmark-sub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.nav__cta {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  padding: 0.5em 1.25em;
+  border: 1px solid var(--text-primary);
+  border-radius: 0;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.nav__cta:hover {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(30vw, 40vw, 50vw);
+  line-height: 1;
+  color: var(--text-primary);
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  max-width: 800px;
+}
+
+.hero__content h1 {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.hero__content .body-text {
+  max-width: 50ch;
+}
+
+/* Staggered entry */
+.hero__stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.15s + 0.3s);
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  .nav__cta {
+    display: none;
+  }
+
+  .hero__content {
+    padding-top: var(--space-lg);
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}

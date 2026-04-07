@@ -1,0 +1,180 @@
+/* Sections 6–9 + Footer */
+
+/* SECTION 06 — Control de riesgo */
+#riesgo {
+  padding-block: var(--space-xl);
+}
+
+.risk-grid {
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.risk-card {
+  padding: var(--space-md);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-base);
+}
+
+.risk-card:hover {
+  background-color: rgba(243, 241, 235, 0.6);
+}
+
+.risk-card__cat {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.risk-card .body-text {
+  font-size: 0.9375rem;
+}
+
+/* SECTION 07 — Para inversores */
+#inversores {
+  padding-block: var(--space-xl);
+}
+
+.investor-grid {
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.investor-card {
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-base);
+}
+
+.investor-card:hover {
+  background-color: var(--bg-warm);
+}
+
+.investor-card .step-number {
+  margin-bottom: var(--space-sm);
+}
+
+.investor-card .body-text {
+  font-size: 0.9375rem;
+}
+
+/* SECTION 08 — Alineación */
+#alineacion {
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: var(--space-xl);
+  max-width: 20ch;
+}
+
+#alineacion .grid-3-col > div {
+  padding-right: var(--space-md);
+}
+
+#alineacion .body-text {
+  font-size: 0.9375rem;
+}
+
+/* SECTION 09 — Contacto */
+#contacto {
+  padding-block: var(--space-xl);
+}
+
+.contacto__text {
+  padding-right: var(--space-lg);
+}
+
+.disclaimer {
+  margin-top: var(--space-lg);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 50ch;
+}
+
+.contacto__form-wrap {
+  padding-top: var(--space-md);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-md);
+}
+
+.site-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.site-footer__wordmark {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.site-footer__copy {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.site-footer__legal {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 30ch;
+  text-align: right;
+}
+
+/* Mobile adjustments */
+@media (max-width: 860px) {
+  .contacto__text {
+    padding-right: 0;
+  }
+
+  #alineacion .grid-3-col > div {
+    padding-right: 0;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .site-footer__legal {
+    text-align: center;
+    max-width: none;
+  }
+
+  .risk-grid {
+    border-left: none;
+  }
+
+  .risk-card {
+    border-left: 1px solid var(--border);
+  }
+
+  .investor-grid {
+    border-left: none;
+  }
+
+  .investor-card {
+    border-left: 1px solid var(--border);
+  }
+}

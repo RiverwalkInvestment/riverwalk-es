@@ -1,0 +1,78 @@
+/* Design Tokens — Riverwalk */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-UltraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Typography */
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Geist', -apple-system, sans-serif;
+
+  /* Colors */
+  --bg-base: #F9F9F6;
+  --bg-warm: #F3F1EB;
+  --bg-dark: #0D0D0B;
+  --text-primary: #0D0D0B;
+  --text-muted: #6E6E66;
+  --text-inverse: #F9F9F6;
+  --border: #E4E2DA;
+  --border-dark: #C8C6BC;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  --space-2xl: 12rem;
+
+  /* Layout */
+  --container: 1280px;
+  --container-narrow: 960px;
+
+  /* Transitions */
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Reveal */
+  --reveal-distance: 28px;
+  --reveal-duration: 0.7s;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  font-size: 1rem;
+  line-height: 1.7;
+}

@@ -1,0 +1,165 @@
+/* Sections 2–5: Tesis, Método, Operaciones, Dark Quote */
+
+/* SECTION 02 — La tesis */
+#tesis {
+  padding-block: var(--space-xl);
+}
+
+.pull-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.5;
+  border-left: 2px solid var(--border-dark);
+  padding-left: var(--space-md);
+  margin-top: var(--space-md);
+  color: var(--text-primary);
+  max-width: 45ch;
+}
+
+/* SECTION 03 — Método */
+#metodo {
+  padding-block: var(--space-xl);
+}
+
+.metodo__grid {
+  margin-top: var(--space-lg);
+}
+
+.metodo__funnel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.metodo__funnel svg {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.metodo__steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.metodo__step {
+  padding: var(--space-md) 0;
+}
+
+.step-number {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.metodo__step h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.metodo__step .body-text {
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-sm);
+}
+
+/* SECTION 04 — Operaciones */
+#operaciones {
+  padding-block: var(--space-xl);
+}
+
+.ops-table {
+  margin-top: var(--space-md);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ops-table table {
+  min-width: 680px;
+}
+
+.ops-table thead th {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: left;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ops-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: opacity var(--transition-base);
+}
+
+.ops-table tbody:hover tr {
+  opacity: 0.4;
+}
+
+.ops-table tbody:hover tr:hover {
+  opacity: 1;
+}
+
+.ops-table tbody td {
+  padding: var(--space-sm) 0;
+  padding-right: var(--space-md);
+  font-weight: 300;
+  font-size: 0.9375rem;
+  vertical-align: middle;
+}
+
+.ops-table__name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+.status {
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.status--active {
+  color: var(--text-primary);
+}
+
+.status--completed {
+  color: var(--text-muted);
+}
+
+/* SECTION 05 — Dark quote */
+.dark-quote {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-xl);
+}
+
+.dark-quote__inner {
+  text-align: center;
+  max-width: 800px;
+}
+
+.dark-quote__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
+  line-height: 1.3;
+  color: var(--text-inverse);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.dark-quote__attr {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
