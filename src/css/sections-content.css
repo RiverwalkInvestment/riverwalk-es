@@ -1,5 +1,49 @@
 /* Sections 2–5: Tesis, Método, Operaciones, Dark Quote */
 
+/* MARQUEE */
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-block: 1.25rem;
+  background-color: var(--bg-base);
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee__item {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.375rem);
+  color: var(--text-muted);
+  padding-inline: 1.5rem;
+  flex-shrink: 0;
+}
+
+.marquee__sep {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--border-dark);
+  flex-shrink: 0;
+}
+
+/* Hide marquee on mobile — GSAP also skips it */
+@media (max-width: 860px) {
+  .marquee {
+    display: none;
+  }
+}
+
 /* SECTION 02 — La tesis */
 #tesis {
   padding-block: var(--space-xl);

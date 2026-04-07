@@ -1,26 +1,10 @@
+// Nav — sticky logic delegated to ScrollTrigger in gsap-animations.js
+// This module only handles anchor smooth-scroll
+
 export function initNav() {
   const nav = document.getElementById('nav');
   if (!nav) return;
 
-  let ticking = false;
-
-  function updateNav() {
-    if (window.scrollY > 80) {
-      nav.classList.add('is-scrolled');
-    } else {
-      nav.classList.remove('is-scrolled');
-    }
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateNav);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // Smooth scroll for anchor links
   nav.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
