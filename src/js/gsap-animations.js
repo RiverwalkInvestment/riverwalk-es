@@ -115,6 +115,7 @@ export function initGsapAnimations() {
       const staggerGroups = [
         { parent: "#tesis",       children: "h2, .body-text, .pull-quote",                      priority: 9 },
         { parent: "#metodo",      children: ".metodo__step",                                     priority: 8 },
+        { parent: "#proceso",     children: "h2, .kicker",                                      priority: 7.5 },
         { parent: "#operaciones", children: "thead, tbody tr",                                   priority: 7 },
         { parent: ".dark-quote",  children: ".kicker, .dark-quote__text, .dark-quote__attr",     priority: 6 },
         { parent: "#riesgo",      children: ".risk-card",                                        priority: 5 },
@@ -147,7 +148,51 @@ export function initGsapAnimations() {
       });
 
       // ─────────────────────────────────────────────────────────────────────
-      // 6. MARQUEE — solo en desktop
+      // 6. ORBITAL SECTION — three concentric ellipses drawn by scroll scrub
+      // ─────────────────────────────────────────────────────────────────────
+      if (isDesktop) {
+        const e1  = document.getElementById("ellipse-1");
+        const e2  = document.getElementById("ellipse-2");
+        const e3  = document.getElementById("ellipse-3");
+        const a1  = document.getElementById("arrow-1");
+        const a2  = document.getElementById("arrow-2");
+        const a3  = document.getElementById("arrow-3");
+        const sl1 = document.getElementById("svgl-1");
+        const sl2 = document.getElementById("svgl-2");
+        const sl3 = document.getElementById("svgl-3");
+
+        if (e1 && e2 && e3) {
+          // Ensure arrows and labels start fully invisible
+          gsap.set(
+            [a1, a2, a3, sl1, sl2, sl3].filter(Boolean),
+            { opacity: 0 }
+          );
+
+          const orbTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: "#proceso",
+              pin: true,
+              scrub: 1.2,
+              start: "top top",
+              end: "+=220%",
+            }
+          });
+
+          orbTl
+            // Inner ellipse draws first
+            .to(e1, { strokeDashoffset: 0, duration: 1, ease: "none" }, 0)
+            .to([a1, sl1].filter(Boolean), { opacity: 0.85, duration: 0.25 }, 0.8)
+            // Middle ellipse
+            .to(e2, { strokeDashoffset: 0, duration: 1.2, ease: "none" }, 1.1)
+            .to([a2, sl2].filter(Boolean), { opacity: 0.85, duration: 0.25 }, 2.1)
+            // Outer ellipse
+            .to(e3, { strokeDashoffset: 0, duration: 1.5, ease: "none" }, 2.4)
+            .to([a3, sl3].filter(Boolean), { opacity: 0.85, duration: 0.25 }, 3.7);
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────────────
+      // 7. MARQUEE — solo en desktop
       //    Anima la pista interna (.marquee__track) de derecha a izquierda
       //    de forma infinita con repeat: -1 y ease: "none"
       // ─────────────────────────────────────────────────────────────────────

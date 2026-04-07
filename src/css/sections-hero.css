@@ -15,9 +15,10 @@
 }
 
 .nav.is-scrolled {
-  background-color: rgba(249, 249, 246, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(11, 11, 9, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav__wordmark {
@@ -70,7 +71,7 @@
   font-size: clamp(30vw, 40vw, 50vw);
   line-height: 1;
   color: var(--text-primary);
-  opacity: 0.03;
+  opacity: 0.055;
   pointer-events: none;
   user-select: none;
   will-change: transform;

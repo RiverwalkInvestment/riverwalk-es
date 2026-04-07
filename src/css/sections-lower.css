@@ -5,28 +5,24 @@
   padding-block: var(--space-xl);
 }
 
-#riesgo h2 {
-  color: var(--text-inverse);
-}
-
 #riesgo .body-text {
-  color: rgba(249, 249, 246, 0.6);
+  color: rgba(240, 239, 234, 0.6);
 }
 
 .risk-grid {
-  border-top: 1px solid rgba(249, 249, 246, 0.12);
-  border-left: 1px solid rgba(249, 249, 246, 0.12);
+  border-top: 1px solid rgba(240, 239, 234, 0.12);
+  border-left: 1px solid rgba(240, 239, 234, 0.12);
 }
 
 .risk-card {
   padding: var(--space-md);
-  border-right: 1px solid rgba(249, 249, 246, 0.12);
-  border-bottom: 1px solid rgba(249, 249, 246, 0.12);
+  border-right: 1px solid rgba(240, 239, 234, 0.12);
+  border-bottom: 1px solid rgba(240, 239, 234, 0.12);
   transition: background-color var(--transition-base), transform var(--transition-base);
 }
 
 .risk-card:hover {
-  background-color: rgba(249, 249, 246, 0.05);
+  background-color: rgba(240, 239, 234, 0.05);
   transform: scale(1.015);
 }
 
@@ -36,7 +32,7 @@
   font-size: 0.6875rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(249, 249, 246, 0.35);
+  color: rgba(240, 239, 234, 0.35);
   display: block;
   margin-bottom: var(--space-xs);
 }
@@ -47,7 +43,7 @@
 
 .risk-card .body-text {
   font-size: 0.9375rem;
-  color: rgba(249, 249, 246, 0.55);
+  color: rgba(240, 239, 234, 0.55);
 }
 
 /* SECTION 07 — Para inversores */
@@ -56,19 +52,19 @@
 }
 
 .investor-grid {
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
+  border-top: 1px solid rgba(240, 239, 234, 0.12);
+  border-left: 1px solid rgba(240, 239, 234, 0.12);
 }
 
 .investor-card {
   padding: var(--space-md) var(--space-md) var(--space-lg);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid rgba(240, 239, 234, 0.12);
+  border-bottom: 1px solid rgba(240, 239, 234, 0.12);
   transition: background-color var(--transition-base), transform var(--transition-base);
 }
 
 .investor-card:hover {
-  background-color: var(--bg-warm);
+  background-color: rgba(240, 239, 234, 0.05);
   transform: scale(1.015);
 }
 
@@ -182,7 +178,7 @@
   }
 
   .risk-card {
-    border-left: 1px solid rgba(249, 249, 246, 0.12);
+    border-left: 1px solid rgba(240, 239, 234, 0.12);
   }
 
   .investor-grid {
@@ -190,6 +186,6 @@
   }
 
   .investor-card {
-    border-left: 1px solid var(--border);
+    border-left: 1px solid rgba(240, 239, 234, 0.12);
   }
 }

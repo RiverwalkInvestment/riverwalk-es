@@ -125,6 +125,50 @@
     </div>
   </section>
 
+  <!-- SECTION ORBITAL — El proceso de selección -->
+  <section id="proceso" class="bg-dark">
+    <div class="proceso__header container">
+      <p class="kicker">El proceso de selección</p>
+      <h2>Tres capas de análisis en órbita.</h2>
+    </div>
+    <div class="proceso__diagram" id="proceso-diagram">
+      <svg class="proceso__svg" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama orbital del proceso de selección de activos Riverwalk">
+
+        <!-- Center label + dot -->
+        <text x="450" y="288" text-anchor="middle" style="fill:rgba(240,239,234,0.45);font-family:-apple-system,sans-serif;font-size:10px;font-weight:400;letter-spacing:0.12em">ACTIVO</text>
+        <circle cx="450" cy="300" r="3" fill="#F0EFEA" opacity="0.6"/>
+
+        <!-- Ellipse 1 — Micro-localización (rx=85, ry=55, C≈450) -->
+        <ellipse id="ellipse-1" cx="450" cy="300" rx="85" ry="55"
+          stroke="#F0EFEA" stroke-width="0.75" stroke-dasharray="450" stroke-dashoffset="450"/>
+        <!-- Arrow at right apex of ellipse-1 -->
+        <polygon id="arrow-1" points="535,296 535,304 542,300" fill="#F0EFEA" opacity="0"/>
+        <!-- Label above ellipse-1 -->
+        <text id="svgl-1" x="450" y="230" text-anchor="middle"
+          style="fill:#F0EFEA;font-family:-apple-system,sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em" opacity="0">01 · Micro-localización</text>
+
+        <!-- Ellipse 2 — Precio vs. evidencia (rx=190, ry=122, C≈1004) -->
+        <ellipse id="ellipse-2" cx="450" cy="300" rx="190" ry="122"
+          stroke="#F0EFEA" stroke-width="0.75" stroke-dasharray="1004" stroke-dashoffset="1004"/>
+        <!-- Arrow at right apex of ellipse-2 -->
+        <polygon id="arrow-2" points="640,296 640,304 647,300" fill="#F0EFEA" opacity="0"/>
+        <!-- Label right of ellipse-2 -->
+        <text id="svgl-2" x="652" y="304" text-anchor="start"
+          style="fill:#F0EFEA;font-family:-apple-system,sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em" opacity="0">02 · Precio vs. evidencia</text>
+
+        <!-- Ellipse 3 — Stress test triple (rx=310, ry=200, C≈1639) -->
+        <ellipse id="ellipse-3" cx="450" cy="300" rx="310" ry="200"
+          stroke="#F0EFEA" stroke-width="0.75" stroke-dasharray="1639" stroke-dashoffset="1639"/>
+        <!-- Arrow at right apex of ellipse-3 -->
+        <polygon id="arrow-3" points="760,296 760,304 767,300" fill="#F0EFEA" opacity="0"/>
+        <!-- Label above ellipse-3 -->
+        <text id="svgl-3" x="450" y="82" text-anchor="middle"
+          style="fill:#F0EFEA;font-family:-apple-system,sans-serif;font-size:11px;font-weight:300;letter-spacing:0.06em" opacity="0">03 · Stress test triple</text>
+
+      </svg>
+    </div>
+  </section>
+
   <!-- MARQUEE — entre método y operaciones -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">

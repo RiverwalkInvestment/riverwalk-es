@@ -97,7 +97,7 @@ h3 {
 
 .bg-dark {
   background-color: var(--bg-dark);
-  color: var(--text-inverse);
+  color: var(--text-primary);
 }
 
 /* Separator lines */

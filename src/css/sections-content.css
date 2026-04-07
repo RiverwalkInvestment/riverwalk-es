@@ -44,6 +44,49 @@
   }
 }
 
+/* ─── ORBITAL SECTION ────────────────────────────────────────────────────── */
+
+#proceso {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--space-xl) var(--space-lg);
+  overflow: hidden;
+}
+
+#proceso h2 {
+  color: var(--text-primary);
+  max-width: 14ch;
+}
+
+.proceso__header {
+  margin-bottom: var(--space-lg);
+}
+
+.proceso__diagram {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proceso__svg {
+  width: min(900px, 88vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Labels injected as SVG text — scaled with viewport via inline SVG */
+
+@media (max-width: 860px) {
+  #proceso {
+    display: none;
+  }
+}
+
 /* SECTION 02 — La tesis */
 #tesis {
   padding-block: var(--space-xl);
@@ -195,7 +238,7 @@
   font-style: italic;
   font-size: clamp(1.5rem, 4vw, 2.75rem);
   line-height: 1.3;
-  color: var(--text-inverse);
+  color: var(--text-primary);
   margin-top: var(--space-md);
   margin-bottom: var(--space-md);
 }

@@ -37,15 +37,17 @@
   --font-display: 'Instrument Serif', serif;
   --font-body: 'Geist', -apple-system, sans-serif;
 
-  /* Colors */
-  --bg-base: #F9F9F6;
-  --bg-warm: #F3F1EB;
-  --bg-dark: #0D0D0B;
-  --text-primary: #0D0D0B;
-  --text-muted: #6E6E66;
-  --text-inverse: #F9F9F6;
-  --border: #E4E2DA;
-  --border-dark: #C8C6BC;
+  /* Colors — dark scheme */
+  --bg-base: #0B0B09;
+  --bg-warm: #131311;
+  --bg-dark: #000000;
+  --bg-light: #F5F4EF;
+  --text-primary: #F0EFEA;
+  --text-muted: #7A7A72;
+  --text-inverse: #0B0B09;
+  --border: #222220;
+  --border-dark: #333331;
+  --border-light: #E4E2DA;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -66,6 +68,8 @@
 
   /* Reveal */
   --reveal-duration: 0.8s;
+
+  color-scheme: dark;
 }
 
 body {
