@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/sections-hero.css">
   <link rel="stylesheet" href="css/sections-content.css">
   <link rel="stylesheet" href="css/sections-lower.css">
+  <link rel="stylesheet" href="css/interactive.css">
   <link rel="stylesheet" href="css/cursor.css">
   <link rel="stylesheet" href="css/animations.css">
 </head>
@@ -327,6 +328,74 @@
     </div>
   </section>
 
+  <!-- SECTION 07b — Carrusel de operaciones -->
+  <section id="carrusel" class="bg-warm" data-reveal>
+    <div class="container">
+      <p class="kicker">Operaciones destacadas</p>
+      <h2>Cada activo, una estrategia.</h2>
+    </div>
+    <div class="carousel-wrap">
+      <div class="carousel" id="carousel">
+        <div class="carousel__track" id="carousel-track">
+          <div class="carousel__item">
+            <span class="carousel__year">2026</span>
+            <h3 class="carousel__name">Cedaceros 8</h3>
+            <p class="carousel__zone">Centro Histórico · Madrid</p>
+            <span class="carousel__tag">En curso</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2025</span>
+            <h3 class="carousel__name">Zurbano 4</h3>
+            <p class="carousel__zone">Almagro · Madrid</p>
+            <span class="carousel__tag">En curso</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2025</span>
+            <h3 class="carousel__name">Jovellanos 5</h3>
+            <p class="carousel__zone">Centro · Madrid</p>
+            <span class="carousel__tag carousel__tag--done">Completado</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2024</span>
+            <h3 class="carousel__name">Castelló 20</h3>
+            <p class="carousel__zone">Recoletos · Madrid</p>
+            <span class="carousel__tag carousel__tag--done">Completado</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2023</span>
+            <h3 class="carousel__name">Ponzano 53</h3>
+            <p class="carousel__zone">Trafalgar · Madrid</p>
+            <span class="carousel__tag carousel__tag--done">Completado</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2022</span>
+            <h3 class="carousel__name">Núñez de Balboa 88</h3>
+            <p class="carousel__zone">Salamanca · Madrid</p>
+            <span class="carousel__tag carousel__tag--done">Completado</span>
+          </div>
+          <div class="carousel__item">
+            <span class="carousel__year">2022</span>
+            <h3 class="carousel__name">Castelló 22</h3>
+            <p class="carousel__zone">Recoletos · Madrid</p>
+            <span class="carousel__tag carousel__tag--done">Completado</span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel__nav container">
+        <button class="carousel__btn carousel__btn--prev" id="carousel-prev" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="carousel__btn carousel__btn--next" id="carousel-next" aria-label="Siguiente">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 08 — Alineación y gobierno -->
   <section id="alineacion" data-reveal>
     <div class="container">
@@ -348,6 +417,77 @@
           <h3>Lo auditable se controla</h3>
           <p class="body-text">Trazabilidad completa de flujos de capital e hitos de obra. Lo opaco se rompe con la sorpresa. Nosotros diseñamos para que no haya sorpresas.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08b — FAQ Preguntas frecuentes -->
+  <section id="faq" data-reveal>
+    <div class="container">
+      <p class="kicker">Preguntas frecuentes</p>
+      <h2>Lo que los inversores suelen preguntar.</h2>
+      <div class="accordion" id="accordion">
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>¿Cuál es el ticket mínimo de entrada?</span>
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <p class="body-text">Los tickets varían según la estructura de cada operación. En coinversión directa trabajamos con inversores desde 500.000€. En vehículos estructurados el mínimo puede ser diferente. El detalle se comparte en proceso privado.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>¿Cómo se estructura el reporting para inversores?</span>
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <p class="body-text">Enviamos informes mensuales con estado de coste, plazo y calidad de cada operación activa. Incluye seguimiento de hitos de obra, comparativa presupuesto-cierre y estado de los canales de salida. Acceso a documentación en tiempo real bajo NDA.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>¿Opera Riverwalk con fondos regulados por la CNMV?</span>
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <p class="body-text">No. Riverwalk opera mediante estructuras de coinversión privada entre inversores cualificados. No captamos fondos del público general ni gestionamos IICs sujetas a supervisión de la CNMV. Cada operación se estructura de forma bilateral y documentada.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>¿Cuál es el horizonte temporal habitual de una operación?</span>
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <p class="body-text">Entre 18 y 36 meses según la complejidad del activo y la estrategia de salida. Definimos el horizonte de desinversión antes de cerrar la adquisición. La hipótesis de salida no es el último paso: es el primero.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>¿Cómo se alinean los intereses del equipo con los del inversor?</span>
+            <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="accordion__content" aria-hidden="true">
+            <p class="body-text">El equipo coinvierte en cada operación. Los fees están vinculados a resultados, no a volumen. Si la operación no alcanza los objetivos acordados, tampoco cobramos. Compartimos consecuencias, no solo análisis.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -410,6 +550,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
