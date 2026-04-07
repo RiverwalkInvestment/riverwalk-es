@@ -1,30 +1,23 @@
-/* Scroll Reveal Animations */
+/* Scroll Reveal — initial hidden state.
+   Visibility is restored by GSAP (gsap-animations.js).
+   The .is-visible class is kept as a no-JS fallback. */
 
 [data-reveal] {
   opacity: 0;
-  transition: opacity var(--reveal-duration) var(--ease-premium);
 }
 
 [data-reveal].is-visible {
   opacity: 1;
 }
 
-/* Stagger support via custom property */
-[data-reveal-delay="1"] { transition-delay: 0.08s; }
-[data-reveal-delay="2"] { transition-delay: 0.16s; }
-[data-reveal-delay="3"] { transition-delay: 0.24s; }
-[data-reveal-delay="4"] { transition-delay: 0.32s; }
-
-/* Reduced motion */
+/* No-JS / reduced-motion fallback */
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
-    opacity: 1;
-    transition: none;
-  }
-
+  [data-reveal],
+  [data-reveal].is-visible,
   .hero__stagger {
-    opacity: 1;
-    transform: none;
-    animation: none;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    animation: none !important;
   }
 }

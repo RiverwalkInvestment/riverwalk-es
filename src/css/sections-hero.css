@@ -92,19 +92,20 @@
   max-width: 50ch;
 }
 
-/* Staggered entry */
+/* Hero stagger — managed by GSAP (gsap-animations.js) */
 .hero__stagger {
   opacity: 0;
-  transform: translateY(18px);
-  animation: heroFadeUp 0.9s var(--ease-premium) forwards;
-  animation-delay: calc(var(--i) * 0.12s + 0.25s);
 }
 
-@keyframes heroFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Word-split wrappers injected by GSAP */
+.word-wrap {
+  display: inline-block;
+  overflow: visible;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 /* Scroll indicator */
