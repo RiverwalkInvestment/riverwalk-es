@@ -1,55 +1,180 @@
-/* ─── LOWER SECTIONS 7–9 + FOOTER ───────────────────────────────────────────── */
+/* ─── LOWER SECTIONS ─────────────────────────────────────────────────────────── */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   7. CAPITAL / INVERSORES
+   QUOTE SECTION
 ───────────────────────────────────────────────────────────────────────────── */
-.capital-section {
+.quote-section {
   background-color: var(--color-cream);
   border-top: 1px solid var(--color-border);
-  padding: 8rem var(--margin);
+  padding: 9rem var(--margin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.quote-inner { max-width: var(--col-5); }
+.quote-label {
+  font-size: var(--text-11);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(15,19,26,0.28);
+  margin-bottom: 2.5rem;
+}
+.quote-text {
+  font-size: var(--text-25);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-black);
+}
+@media (min-width: 800px) { .quote-text { font-size: var(--text-48); } }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TRANSPARENCIA — dark photo bg
+───────────────────────────────────────────────────────────────────────────── */
+.transparencia-section {
+  position: relative;
+  background-color: var(--color-black);
+  min-height: 80svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 7rem var(--margin);
+  overflow: clip;
 }
 
-.capital-header { margin-bottom: 5rem; }
-.capital-title {
+.transparencia-photo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/photos/madrid-escalera.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  background-color: #0f131a;
+}
+
+.transparencia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,13,18,0.5) 0%, rgba(10,13,18,0.8) 100%);
+}
+
+.transparencia-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4rem;
+}
+
+.transparencia-title {
+  font-size: var(--text-36);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-cream);
+}
+@media (min-width: 800px) { .transparencia-title { font-size: var(--text-60); } }
+.transparencia-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,250,246,0.55);
+}
+
+.transparencia-quote {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,250,246,0.12);
+  padding-top: 2.5rem;
+  max-width: var(--col-5);
+}
+.transparencia-quote__text {
+  font-size: var(--text-16);
+  font-style: italic;
+  line-height: var(--lh-loose);
+  color: rgba(255,250,246,0.65);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+@media (min-width: 800px) { .transparencia-quote__text { font-size: var(--text-21); } }
+.transparencia-quote__attr {
+  font-size: var(--text-11);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,250,246,0.28);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CAPITAL / INVERSORES — accordion
+───────────────────────────────────────────────────────────────────────────── */
+.capital-section--accordion {
+  background-color: var(--color-cream);
+  border-top: 1px solid var(--color-border);
+  padding: 7rem var(--margin);
+}
+
+.capital-acc__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+@media (min-width: 800px) {
+  .capital-acc__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(8 * var(--gutter));
+    align-items: start;
+  }
+}
+
+.capital-acc__title {
   font-size: var(--text-25);
   font-weight: 500;
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-tight);
 }
-@media (min-width: 800px) { .capital-title { font-size: var(--text-36); } }
-.capital-title em { font-style: italic; font-weight: 300; color: var(--color-grey); }
+@media (min-width: 800px) { .capital-acc__title { font-size: var(--text-36); } }
+.capital-acc__title em { font-style: italic; font-weight: 300; color: var(--color-grey); }
 
-.capital-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
-  background-color: var(--color-border);
-}
-@media (min-width: 800px) {
-  .capital-grid { grid-template-columns: 1fr 1fr; }
+.capital-acc__right {
+  display: flex;
+  flex-direction: column;
 }
 
-.cap-item {
-  background-color: var(--color-cream);
-  padding: 3rem 2.5rem;
-  transition: background-color var(--dur-400) var(--ease-expo-out);
+.cap-acc-item {
+  border-bottom: 1px solid var(--color-border);
 }
-.cap-item:hover { background-color: var(--color-dark-cream); }
+.cap-acc-item:first-child { border-top: 1px solid var(--color-border); }
 
-.cap-num {
-  font-size: var(--text-11);
-  color: rgba(15,19,26,0.25);
-  letter-spacing: 0.15em;
-  margin-bottom: 1.75rem;
+.cap-acc-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
 }
-.cap-item-title {
-  font-size: var(--text-21);
+.cap-acc-summary::-webkit-details-marker { display: none; }
+
+.cap-acc-title {
+  font-size: var(--text-13);
   font-weight: 500;
   letter-spacing: var(--ls-tight);
-  margin-bottom: 0.75rem;
-  line-height: var(--lh-tight);
+  color: var(--color-black);
 }
-.cap-item-text {
+@media (min-width: 800px) { .cap-acc-title { font-size: var(--text-16); } }
+
+.cap-acc-chevron {
+  flex-shrink: 0;
+  color: rgba(15,19,26,0.35);
+  transition: transform var(--dur-400) var(--ease-expo-out);
+}
+.cap-acc-item[open] .cap-acc-chevron { transform: rotate(180deg); }
+
+.cap-acc-body {
+  padding: 0 0 1.5rem;
+}
+.cap-acc-body p {
   font-size: var(--text-13);
   line-height: var(--lh-loose);
   color: var(--color-grey);
@@ -57,78 +182,151 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   8. GOBIERNO
+   FOCO GEOGRÁFICO
 ───────────────────────────────────────────────────────────────────────────── */
-.gobierno-section {
-  background-color: var(--color-dark-cream);
+.foco-section {
+  background-color: var(--color-cream);
   border-top: 1px solid var(--color-border);
-  padding: 6rem var(--margin);
+  overflow: hidden;
 }
 
-.gov-pre {
-  font-size: var(--text-21);
+.foco-title {
+  font-size: clamp(3.5rem, 10vw, 9rem);
   font-weight: 500;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-tight);
-  max-width: var(--col-5);
-  margin-bottom: 4rem;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--color-black);
+  padding: 4rem var(--margin) 3rem;
+  white-space: nowrap;
 }
-@media (min-width: 800px) { .gov-pre { font-size: var(--text-36); } }
-.gov-pre em { font-style: italic; font-weight: 300; color: var(--color-grey); }
 
-.gov-grid {
+/* 3-up photo cards */
+.foco-photos {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  border-top: 1px solid var(--color-border);
-  padding-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
 }
-@media (min-width: 800px) {
-  .gov-grid { grid-template-columns: repeat(3, 1fr); gap: calc(4 * var(--gutter)); }
+@media (max-width: 799px) {
+  .foco-photos { grid-template-columns: 1fr; }
 }
 
-.gov-item {}
-.gov-item-label {
-  font-size: var(--text-11);
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color: rgba(15,19,26,0.30);
-  margin-bottom: 0.75rem;
+.foco-photo-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: rgba(15,19,26,0.08);
 }
-.gov-item-title {
+@media (max-width: 799px) {
+  .foco-photo-card { aspect-ratio: 4 / 3; }
+}
+
+.foco-photo-card__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s var(--ease-expo-out);
+  /* Fallback colors per card */
+  background-color: #2a2520;
+}
+.foco-photo--salamanca { background-color: #2a2520; }
+.foco-photo--almagro   { background-color: #1e2428; }
+.foco-photo--jeronimos { background-color: #232820; }
+.foco-photo-card:hover .foco-photo-card__img {
+  transform: scale(1.04);
+}
+
+.foco-photo-card__label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(10,13,18,0.7) 0%, transparent 100%);
+  color: var(--color-cream);
+}
+
+.foco-photo-card__name {
   font-size: var(--text-16);
   font-weight: 500;
   letter-spacing: var(--ls-tight);
-  margin-bottom: 0.5rem;
 }
-@media (min-width: 800px) { .gov-item-title { font-size: var(--text-21); } }
-.gov-item-text {
+@media (min-width: 800px) { .foco-photo-card__name { font-size: var(--text-21); } }
+
+.foco-photo-card__num {
+  font-size: var(--text-11);
+  color: rgba(255,250,246,0.45);
+  letter-spacing: 0.12em;
+}
+
+/* Body text + wide photo */
+.foco-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding: 5rem var(--margin);
+  border-top: 1px solid var(--color-border);
+}
+@media (min-width: 800px) {
+  .foco-body {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(8 * var(--gutter));
+    align-items: start;
+  }
+}
+
+.foco-body__desc {
   font-size: var(--text-13);
   line-height: var(--lh-loose);
   color: var(--color-grey);
   font-weight: 300;
+  margin-bottom: 1.5rem;
 }
+.foco-body__desc:last-child { margin-bottom: 0; }
+
+.foco-body__photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: rgba(15,19,26,0.06);
+}
+.foco-body__photo-inner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s var(--ease-expo-out);
+}
+.foco-body__photo:hover .foco-body__photo-inner { transform: scale(1.04); }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   9. CONTACTO
+   CONTACTO
 ───────────────────────────────────────────────────────────────────────────── */
 .contacto-section {
   background-color: var(--color-cream);
   border-top: 1px solid var(--color-border);
   padding: 8rem var(--margin);
-}
-
-.contacto-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
-  align-items: start;
+  gap: 5rem;
 }
 @media (min-width: 800px) {
-  .contacto-grid {
+  .contacto-section {
     grid-template-columns: 1fr 1fr;
     gap: calc(10 * var(--gutter));
+    align-items: start;
   }
+}
+
+.contacto-brand {
+  font-size: var(--text-11);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(15,19,26,0.30);
+  margin-bottom: 1.5rem;
 }
 
 .contacto-title {
@@ -155,7 +353,28 @@
   color: rgba(15,19,26,0.30);
   border-top: 1px solid var(--color-border);
   padding-top: 1.25rem;
+  margin-top: 2rem;
 }
+
+/* Button */
+.btn--primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.8125rem;
+  padding: 0 2.25rem;
+  font-size: var(--text-13);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--dur-400) var(--ease-expo-out);
+}
+.btn--primary:hover { opacity: 0.65; }
 
 /* Form */
 .contact-form {
@@ -163,7 +382,6 @@
   flex-direction: column;
   gap: 2.25rem;
 }
-
 .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
 .form-field label {
   font-size: var(--text-11);
@@ -190,24 +408,7 @@
 .form-field input::placeholder { color: rgba(15,19,26,0.25); }
 .form-field input:focus,
 .form-field select:focus { border-bottom-color: var(--color-black); }
-
-.contact-form .btn {
-  align-self: flex-start;
-  height: 2.8125rem;
-  padding: 0 2.25rem;
-  font-size: var(--text-11);
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  background-color: var(--color-black);
-  color: var(--color-cream);
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  transition: opacity var(--dur-400) var(--ease-expo-out);
-  margin-top: 0.5rem;
-}
-.contact-form .btn:hover { opacity: 0.65; }
+.contact-form .btn--primary { align-self: flex-start; border-radius: 100px; margin-top: 0.5rem; }
 
 #form-success {
   padding: 1rem 0;
@@ -246,7 +447,6 @@
   text-align: right;
   line-height: var(--lh-loose);
 }
-
 @media (max-width: 799px) {
   .site-footer-simple { flex-direction: column; text-align: center; gap: 1rem; }
   .foot-legal { text-align: center; max-width: none; }

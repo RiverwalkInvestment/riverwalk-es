@@ -37,9 +37,7 @@ export function initGsapAnimations() {
       }
 
       // ── 1. HERO ENTRY ──────────────────────────────────────────────────────
-      const h1     = document.querySelector(".hero__h1");
-      const kicker = document.querySelector(".hero__kicker");
-      const sub    = document.querySelector(".hero__sub");
+      const h1 = document.querySelector(".hero__h1");
 
       // Split H1 words by line (preserves <br>)
       if (h1) {
@@ -54,12 +52,9 @@ export function initGsapAnimations() {
           .join("<br>");
         gsap.set(".hero__h1 .word", { autoAlpha: 0, yPercent: 120 });
       }
-      gsap.set([kicker, sub].filter(Boolean), { autoAlpha: 0, y: 16 });
 
-      gsap.timeline({ delay: 0.15 })
-        .to(kicker, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0)
-        .to(".hero__h1 .word", { autoAlpha: 1, yPercent: 0, duration: 1.1, stagger: 0.08, ease: "power3.out" }, 0.2)
-        .to(sub, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+      gsap.timeline({ delay: 0.25 })
+        .to(".hero__h1 .word", { autoAlpha: 1, yPercent: 0, duration: 1.1, stagger: 0.07, ease: "power3.out" }, 0);
 
       // Ghost "rw" parallax
       const ghost = document.querySelector(".hero__ghost");

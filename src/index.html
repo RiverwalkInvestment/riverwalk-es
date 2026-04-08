@@ -33,69 +33,158 @@
   <nav class="site-nav">
     <a href="/" class="nav__brand">Riverwalk</a>
     <ul class="nav__links">
-      <li><a href="#tesis">Tesis</a></li>
+      <li><a href="#estrategia">Estrategia</a></li>
       <li><a href="#metodologia">Metodología</a></li>
-      <li><a href="#operaciones">Operaciones</a></li>
-      <li><a href="#inversores">Inversores</a></li>
+      <li><a href="#inversores">Para inversores</a></li>
     </ul>
-    <a href="#contacto" class="nav__cta">Contacto privado</a>
+    <a href="#contacto" class="nav__cta">Contact us</a>
   </nav>
 </header>
 
 
 <!-- ─── 1. HERO ───────────────────────────────────────────────────────────────── -->
 <section class="hero">
-  <div class="hero__bg">
-    <div class="hero__accent"></div>
-  </div>
+  <div class="hero__photo-bg"></div>
+  <div class="hero__overlay"></div>
   <div class="hero__ghost" aria-hidden="true">rw</div>
   <div class="hero__content">
-    <div class="hero__kicker">Madrid Prime Real Estate · Desde 2022</div>
     <h1 class="hero__h1">
-      No predecimos<br>
-      el mercado.<br>
-      Lo resistimos.
+      La mayoría intenta<br>
+      predecir el futuro.<br>
+      <em>Nosotros nos enfocamos<br>en sobrevivir a él.</em>
     </h1>
-    <p class="hero__sub">
-      Riverwalk es una firma de inversión inmobiliaria que opera en el residencial prime de Madrid.
-      Nuestro diferencial no es asumir riesgo, sino eliminarlo antes de invertir.
-    </p>
   </div>
 </section>
 
 
-<!-- ─── 2. TESIS ──────────────────────────────────────────────────────────────── -->
-<section id="tesis" class="tesis-section">
-  <p class="s-label" data-reveal>Origen de la tesis</p>
-  <div class="tesis-grid">
-    <div>
-      <h2 class="tesis-statement" data-reveal>
-        La mayoría de los fondos intentan predecir el futuro.<br>
-        <em>Nosotros nos enfocamos en sobrevivir a él.</em>
-      </h2>
+<!-- ─── 2. SUB-HERO ────────────────────────────────────────────────────────────── -->
+<section class="sub-hero">
+  <p class="sub-hero__text" data-reveal>
+    Nuestro diferencial no es asumir<br>
+    riesgo, sino eliminarlo<br>
+    antes de invertir
+  </p>
+</section>
+
+
+<!-- ─── 3. ESTRATEGIA ─────────────────────────────────────────────────────────── -->
+<section id="estrategia" class="estrategia-section">
+
+  <!-- Header row: label + pills -->
+  <div class="estrategia-header" data-reveal>
+    <div class="estrategia-header__label">
+      <span class="estrategia-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L4 7v8l7 5 7-5V7L11 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </span>
+      <span>Características de la estrategia</span>
     </div>
-    <div class="tesis-right">
-      <p class="tesis-text" data-reveal>
-        El mercado residencial prime de Madrid tiene un desajuste estructural: existe oferta reformada abundante que no cumple con las expectativas del comprador exigente. No es escasez de demanda. Es escasez de producto adecuado.
-      </p>
-      <p class="tesis-text" data-reveal>
-        Ese desajuste es nuestra oportunidad. Pero no la buscamos en cualquier activo. La buscamos en los activos que superan cuatro filtros de eliminación antes de ejecutar un euro de capital.
-      </p>
-      <p class="tesis-text tesis-text--italic" data-reveal>
-        "Preferimos perder oportunidades a comprar fragilidad."
-      </p>
+    <div class="estrategia-pills">
+      <div class="estrategia-pill-row">
+        <span class="epill">Madrid prime</span>
+        <span class="epill-desc">Salamanca, Chamberí, Almagro, Castellana — los barrios de mayor demanda estructural</span>
+      </div>
+      <div class="estrategia-pill-row">
+        <span class="epill">Coinversión directa</span>
+        <span class="epill-desc">Sin estructuras de fondo ni comisiones de gestión recurrentes</span>
+      </div>
+      <div class="estrategia-pill-row">
+        <span class="epill">Alineación total</span>
+        <span class="epill-desc">Riverwalk coinvierte en cada operación junto al inversor</span>
+      </div>
     </div>
+  </div>
+
+  <!-- Accordion items -->
+  <div class="estrategia-accordion">
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/></svg>
+        </span>
+        <span class="eac-title">Selección de activos</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>Operamos exclusivamente en el segmento residencial prime de Madrid. Cada activo debe cumplir criterios estrictos de micro-localización, liquidez histórica y absorción observable antes de pasar al análisis financiero.</p>
+      </div>
+    </details>
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1v4M9 13v4M1 9h4M13 9h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="9" cy="9" r="3.5" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+        <span class="eac-title">Gestión activa del patrimonio</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>No somos pasivos. Cada operación tiene un plan de actuación activo: reforma, reposicionamiento y comercialización controlada. El valor se construye operación a operación, no por exposición al ciclo.</p>
+      </div>
+    </details>
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9h14M9 2l7 7-7 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="eac-title">Control de riesgo y liquidez</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>Nuestro underwriting se diseña para el escenario adverso, no para el promedio. Validamos liquidez micro-local, mantenemos límites de WIP activos y testamos cada operación contra tres escenarios de estrés simultáneos antes de comprometer capital.</p>
+      </div>
+    </details>
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5v4l3 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="eac-title">Transparencia total</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>Reporting mensual con trazabilidad total de flujos, hitos y decisiones. El inversor ve cada desviación antes de que escale. La opacidad no es una opción: es un riesgo reputacional que no asumimos.</p>
+      </div>
+    </details>
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M3 5h12M3 13h7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="eac-title">Acceso institucional directo</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>Cada operación es accesible de forma directa, sin capas intermediarias. Sin fondo, sin vehículo colectivo genérico: el inversor tiene exposición real al activo con estructura bilateral y documentación institucional.</p>
+      </div>
+    </details>
+
+    <details class="eac-item">
+      <summary class="eac-summary">
+        <span class="eac-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 6l-3 3 3 3M12 6l3 3-3 3M10 4l-2 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="eac-title">Estructura de coinversión</span>
+        <svg class="eac-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="eac-body">
+        <p>Riverwalk coinvierte en cada operación. Nuestros intereses y los del inversor están alineados desde el día cero: compartimos consecuencias, no solo análisis. Sin fee de gestión: cobramos en el resultado, no en el proceso.</p>
+      </div>
+    </details>
+
   </div>
 </section>
 
 
-<!-- ─── 3. METODOLOGÍA — dark bg + canvas animation ──────────────────────────── -->
+<!-- ─── 4. METODOLOGÍA — dark bg + canvas animation ──────────────────────────── -->
 <section id="metodologia">
 
   <!-- Sticky canvas background -->
   <div class="metodo-bg">
     <canvas class="metodo-canvas" id="metodo-canvas"></canvas>
-    <!-- Progress bar — exactly like nfinitepaper -->
     <div class="metodo-progress" id="metodo-progress">
       <div class="metodo-progress__track">
         <div class="metodo-progress__bar" id="metodo-progress-bar"></div>
@@ -105,34 +194,35 @@
 
   <!-- Intro — centered title, overlaid on canvas -->
   <div class="metodo-intro">
-    <h2>Via negativa:<br><em>Mejorar por<br>sustracción.</em></h2>
+    <h2>Nuestra metodología</h2>
   </div>
 
-  <!-- Spacer so sticky bg stays visible -->
   <div class="metodo-spacer"></div>
 
   <!-- Part 1 — description + legend -->
   <div class="metodo-part1">
     <div class="metodo-part1__inner">
-      <h3>
-        <span>Nuestro filtro no busca encontrar</span>
-        &nbsp;"la mejor historia". Busca eliminar fragilidad.
-      </h3>
+      <p class="metodo-part1__kicker">Via negativa</p>
+      <h3>Mejorar por sustracción.</h3>
       <p class="metodo-part1__body">
-        Lo que sobrevive al proceso de exclusión es lo que ejecutamos. Cuatro filtros de eliminación, en orden de mayor a menor coste de due diligence, aplicados antes de comprometer un euro de capital.
+        Nuestro filtro no busca encontrar "la mejor historia". Busca eliminar fragilidad. Lo que sobrevive al proceso de exclusión es lo que ejecutamos.
       </p>
       <ul class="metodo-legend">
         <li class="metodo-legend__item">
           <span class="metodo-legend__line"></span>
-          <span>Micro-localización y ejes prime</span>
+          <span>Estrategia de salida validada</span>
         </li>
         <li class="metodo-legend__item">
           <span class="metodo-legend__box"></span>
-          <span>Precio real vs. evidencia observable</span>
+          <span>Precio real vs. evidencia</span>
         </li>
         <li class="metodo-legend__item">
           <span class="metodo-legend__dot"></span>
-          <span>Stress testing · escenarios adversos simultáneos</span>
+          <span>Stress testing de escenarios</span>
+        </li>
+        <li class="metodo-legend__item">
+          <span class="metodo-legend__dash"></span>
+          <span>Micro-localización</span>
         </li>
       </ul>
     </div>
@@ -141,8 +231,8 @@
   <!-- Part 2 — four filters -->
   <div class="metodo-part2">
     <h3 class="metodo-part2__title">
-      <span>Cuatro</span>
-      <span>filtros de exclusión</span>
+      <span>No predecimos el mercado</span>
+      <span>lo resistimos</span>
     </h3>
     <div class="metodo-part2__content">
       <div class="metodo-stat-item">
@@ -171,227 +261,270 @@
 </section>
 
 
-<!-- ─── 4. RIESGO ─────────────────────────────────────────────────────────────── -->
-<section id="riesgo" class="riesgo-section">
-  <p class="s-label" data-reveal>Control de riesgo operativo</p>
-  <div class="riesgo-header">
-    <h2 class="riesgo-title" data-reveal>
-      Mapear la fragilidad<br>
-      antes de que<br>
-      <em>el riesgo escale.</em>
-    </h2>
-    <p class="riesgo-intro" data-reveal>
-      La transparencia no es marketing: es ingeniería de riesgo. Lo que se oculta es frágil. Lo trazable se gestiona. Lo auditable se controla. Diseñamos respuestas a cada punto de fragilidad antes de que se active.
-    </p>
-  </div>
-  <div class="riesgo-grid">
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo técnico</p>
-      <h3 class="ri-problem">Vicios ocultos</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Filtros de exclusión en due diligence + control de CAPEX en cinco capas de redundancia deliberada. La contingencia no es un colchón, es ingeniería.</p>
-    </div>
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo legal</p>
-      <h3 class="ri-problem">Cargas no registradas</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Due diligence exhaustiva con hitos de capital. El desembolso de capital se libera exclusivamente tras confirmación de cada hito, no antes.</p>
-    </div>
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo de plazo</p>
-      <h3 class="ri-problem">Retrasos de licencia</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Gestión proactiva de silencios administrativos. Planificación por zonas con secuencias técnicas que permiten avance paralelo sin dependencia de bloqueantes.</p>
-    </div>
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo comercial</p>
-      <h3 class="ri-problem">Cambio de mercado</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Verificación de liquidez por micro-zona. Límites de WIP activos. Canales de salida internacionales pre-activados. Stress scenario integrado en el underwriting.</p>
-    </div>
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo reputacional</p>
-      <h3 class="ri-problem">Calidad percibida</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Estándares prime innegociables. QA/QC por fases, no solo al final. Mockups y muestras aprobados antes de producción. Subcontratas especializadas por disciplina.</p>
-    </div>
-    <div class="riesgo-item" data-reveal>
-      <p class="ri-type">Riesgo de CAPEX</p>
-      <h3 class="ri-problem">Desviación de costes</h3>
-      <p class="ri-protocol"><strong>Protocolo:</strong> Licitación competitiva mínimo 3 ofertas por paquete. Presupuesto cerrado por partidas críticas. Seguimiento mensual coste-a-cierre con alertas tempranas.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── 5. OPERACIONES ────────────────────────────────────────────────────────── -->
-<section id="operaciones" class="operaciones-section">
-  <p class="s-label" data-reveal>Track record</p>
-  <div class="operaciones-header" data-reveal>
-    <h2 class="operaciones-title">
-      Madrid prime.<br><em>Activos robustos.</em>
-    </h2>
-  </div>
-  <div class="operaciones-list">
-    <div class="op-item" data-reveal>
-      <span class="op-year">2026</span>
-      <span class="op-name">Operación Centro I</span>
-      <span class="op-location">Centro · Madrid</span>
-      <span class="op-tag">En curso</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2025</span>
-      <span class="op-name">Operación Almagro II</span>
-      <span class="op-location">Almagro · Madrid</span>
-      <span class="op-tag">En curso</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2025</span>
-      <span class="op-name">Operación Centro II</span>
-      <span class="op-location">Centro · Madrid</span>
-      <span class="op-tag">Completado</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2024</span>
-      <span class="op-name">Operación Recoletos I</span>
-      <span class="op-location">Recoletos · Madrid</span>
-      <span class="op-tag">Completado</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2023</span>
-      <span class="op-name">Operación Trafalgar I</span>
-      <span class="op-location">Trafalgar · Madrid</span>
-      <span class="op-tag">Completado</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2022</span>
-      <span class="op-name">Operación Salamanca I</span>
-      <span class="op-location">Salamanca · Madrid</span>
-      <span class="op-tag">Completado</span>
-    </div>
-    <div class="op-item" data-reveal>
-      <span class="op-year">2022</span>
-      <span class="op-name">Operación Recoletos II</span>
-      <span class="op-location">Recoletos · Madrid</span>
-      <span class="op-tag">Completado</span>
-    </div>
-  </div>
-  <p class="operaciones-note" data-reveal>
-    El track record detallado, incluyendo estructura de capital, plazos de ejecución y ratios de rentabilidad, se comparte en procesos privados con inversores cualificados.
-  </p>
-</section>
-
-
-<!-- ─── 6. PRINCIPIO — dark full-screen quote ─────────────────────────────────── -->
-<section id="principio" class="principio-section">
-  <div class="principio-inner" data-reveal>
-    <p class="principio-label">Filosofía de inversión</p>
-    <p class="principio-quote">
-      "La disciplina se ve tanto en lo que decidimos ejecutar como en lo que decidimos no hacer."
-    </p>
-    <p class="principio-attr">Riverwalk Real Estate Investments · Madrid</p>
-  </div>
-</section>
-
-
-<!-- ─── 7. CAPITAL / INVERSORES ───────────────────────────────────────────────── -->
-<section id="inversores" class="capital-section">
-  <p class="s-label" data-reveal>Para inversores</p>
-  <div class="capital-header">
-    <h2 class="capital-title" data-reveal>
-      Capital estructurado.<br><em>Gobierno institucional.</em>
-    </h2>
-  </div>
-  <div class="capital-grid">
-    <div class="cap-item" data-reveal>
-      <p class="cap-num">01</p>
-      <h3 class="cap-item-title">Coinversión directa en operaciones prime</h3>
-      <p class="cap-item-text">Participación en operaciones individuales de reposicionamiento residencial en Madrid prime. Procesos bilaterales y estructurados con reporting periódico. Para inversores privados cualificados con exposición directa al activo.</p>
-    </div>
-    <div class="cap-item" data-reveal>
-      <p class="cap-num">02</p>
-      <h3 class="cap-item-title">Coinversión en edificios y desarrollos</h3>
-      <p class="cap-item-text">Operaciones de mayor escala con estructura de co-inversores y Riverwalk como promotora exclusiva. Para family offices e inversores institucionales que buscan activos singulares en Madrid con control operativo completo.</p>
-    </div>
-    <div class="cap-item" data-reveal>
-      <p class="cap-num">03</p>
-      <h3 class="cap-item-title">Vehículos de inversión estructurados</h3>
-      <p class="cap-item-text">Estructuras formales con gobierno corporativo, comité de inversión, reporting institucional y compliance alineado con estándares bancarios. Presentable como producto financiero diferenciado ante entidades de banca privada.</p>
-    </div>
-    <div class="cap-item" data-reveal>
-      <p class="cap-num">04</p>
-      <h3 class="cap-item-title">Escala institucional · Branded Residences</h3>
-      <p class="cap-item-text">Desarrollo de residencias de marca en activos de referencia. Operaciones ultra-premium con operadores internacionales, salida a compradores UHNW y comercialización controlada a través de canales privados internacionales.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── 8. GOBIERNO ───────────────────────────────────────────────────────────── -->
-<section id="gobierno" class="gobierno-section">
-  <h3 class="gov-pre" data-reveal>
-    La transparencia no es marketing.<br><em>Es ingeniería de riesgo.</em>
-  </h3>
-  <div class="gov-grid">
-    <div class="gov-item" data-reveal>
-      <p class="gov-item-label">Reporting</p>
-      <h4 class="gov-item-title">Mensual y trazable</h4>
-      <p class="gov-item-text">Informes periódicos de coste, plazo y calidad en cada operación. Seguimiento de desviaciones con alertas tempranas. El inversor ve todo, en tiempo real.</p>
-    </div>
-    <div class="gov-item" data-reveal>
-      <p class="gov-item-label">Alineación</p>
-      <h4 class="gov-item-title">Skin in the Game</h4>
-      <p class="gov-item-text">Coinversión del equipo en cada operación. Estructura de fees vinculada a resultados. Compartimos consecuencias, no solo análisis.</p>
-    </div>
-    <div class="gov-item" data-reveal>
-      <p class="gov-item-label">Auditoría</p>
-      <h4 class="gov-item-title">Lo auditable se controla</h4>
-      <p class="gov-item-text">Trazabilidad total de flujos de capital, hitos de obra y decisiones de inversión. Lo opaco se rompe con la sorpresa. Lo documentado se gestiona antes de que escale.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── 9. CONTACTO ───────────────────────────────────────────────────────────── -->
-<section id="contacto" class="contacto-section">
-  <p class="s-label" data-reveal>Conversaciones privadas</p>
-  <div class="contacto-grid">
-    <div>
-      <h2 class="contacto-title" data-reveal>
-        Las mejores<br>oportunidades<br><em>no son públicas.</em>
+<!-- ─── 5. RIESGO — dark, list format ─────────────────────────────────────────── -->
+<section id="riesgo" class="riesgo-section riesgo-section--dark">
+  <div class="riesgo-dark__inner">
+    <div class="riesgo-dark__left" data-reveal>
+      <h2 class="riesgo-dark__title">
+        Mapear la fragilidad<br>
+        antes de que<br>
+        el riesgo escale.
       </h2>
-      <p class="contacto-text" data-reveal>
-        Trabajamos con un número limitado de inversores en procesos privados y estructurados. Si su perfil es afín a nuestra tesis de inversión, le invitamos a iniciar una conversación.
-      </p>
-      <p class="contacto-disclaimer" data-reveal>
-        Riverwalk Real Estate Investments opera en el marco de la normativa vigente de inversión inmobiliaria privada. Las operaciones se estructuran con inversores cualificados en procesos bilaterales. Esta web tiene carácter exclusivamente informativo y no constituye oferta pública de inversión, captación de fondos del público general, ni asesoramiento financiero.
+      <div class="riesgo-dark__tags">
+        <span class="riesgo-tag">Análisis de riesgo</span>
+        <span class="riesgo-tag">Estrategia</span>
+      </div>
+      <p class="riesgo-dark__body">
+        La transparencia no es marketing: es ingeniería de riesgo. Lo que se oculta es frágil. Lo trazable se gestiona. Lo auditable se controla. Diseñamos respuestas a cada punto de fragilidad antes de que se active.
       </p>
     </div>
-    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpznkpqz" method="POST">
-      <div class="form-field">
-        <label>Nombre completo</label>
-        <input type="text" name="nombre" placeholder="Su nombre" required>
+    <div class="riesgo-dark__list">
+      <div class="riesgo-list-item" data-reveal>
+        <h3 class="rli-title">Due diligence multi-capa</h3>
+        <p class="rli-body">Análisis legal, técnico, urbanístico, fiscal y de mercado antes de cualquier compromiso de capital.</p>
       </div>
-      <div class="form-field">
-        <label>Email institucional</label>
-        <input type="email" name="email" placeholder="nombre@empresa.com" required>
+      <div class="riesgo-list-item" data-reveal>
+        <h3 class="rli-title">Comité de inversión independiente</h3>
+        <p class="rli-body">Cada operación requiere aprobación unánime de un comité con experiencia en banca de inversión, derecho inmobiliario y gestión de activos.</p>
       </div>
-      <div class="form-field">
-        <label>Perfil de inversor</label>
-        <select name="perfil">
-          <option value="" disabled selected>Seleccione su perfil</option>
-          <option>Family Office</option>
-          <option>Banca Privada</option>
-          <option>Inversor Privado Cualificado</option>
-          <option>Capital Institucional</option>
-          <option>Otro</option>
-        </select>
+      <div class="riesgo-list-item" data-reveal>
+        <h3 class="rli-title">Revisión continua post-adquisición</h3>
+        <p class="rli-body">Seguimiento mensual de KPIs operativos, revisión semestral de estrategia y valoración anual independiente de cada activo.</p>
       </div>
-      <div class="form-field">
-        <label>Mensaje</label>
-        <input type="text" name="mensaje" placeholder="Cuéntenos brevemente su interés">
+      <div class="riesgo-list-item" data-reveal>
+        <h3 class="rli-title">Protocolo de salida desde el día uno</h3>
+        <p class="rli-body">Definimos el escenario de desinversión en el momento de la compra, no cuando el mercado nos lo impone.</p>
       </div>
-      <button type="submit" class="btn btn--primary">Iniciar conversación</button>
-      <div id="form-success" style="display:none;">
-        <p>Gracias. Le contactaremos en los próximos días.</p>
-      </div>
-    </form>
+    </div>
   </div>
+</section>
+
+
+<!-- ─── 6. ORBIT DIAGRAM ───────────────────────────────────────────────────────── -->
+<section class="orbit-section">
+  <div class="orbit-wrap">
+
+    <!-- Orbit card 1 — active by default -->
+    <div class="orbit-card orbit-card--active" id="orbit-1">
+      <div class="orbit-card__icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4C8.5 4 4 8.5 4 14s4.5 10 10 10 10-4.5 10-10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M24 4l-4 4 4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 class="orbit-card__title">Enfocados en<br>el largo plazo</h3>
+      <p class="orbit-card__body">Construimos posiciones patrimoniales de largo recorrido en activos prime, no carteras de trading a corto plazo. Nuestra visión es generacional.</p>
+    </div>
+
+    <!-- Orbit card 2 -->
+    <div class="orbit-card" id="orbit-2">
+      <div class="orbit-card__icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4C8.5 4 4 8.5 4 14s4.5 10 10 10 10-4.5 10-10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M24 4l-4 4 4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 class="orbit-card__title">Proceso sin<br>excepciones</h3>
+      <p class="orbit-card__body">El mismo rigor analítico en cada operación, independientemente del momento de mercado. La disciplina no se negocia cuando el ciclo está caliente.</p>
+    </div>
+
+    <!-- Orbit card 3 -->
+    <div class="orbit-card" id="orbit-3">
+      <div class="orbit-card__icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4C8.5 4 4 8.5 4 14s4.5 10 10 10 10-4.5 10-10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M24 4l-4 4 4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 class="orbit-card__title">Alineación<br>estructural</h3>
+      <p class="orbit-card__body">No cobramos por gestión. Ganamos cuando el inversor gana. Esta estructura elimina los conflictos de interés inherentes a los modelos de fondos tradicionales.</p>
+    </div>
+
+    <!-- The ellipse ring + rotating dot -->
+    <div class="orbit-ring" aria-hidden="true">
+      <div class="orbit-ring__ellipse"></div>
+      <div class="orbit-ring__dot orbit-ring__dot--n"></div>
+      <div class="orbit-ring__dot orbit-ring__dot--e"></div>
+      <div class="orbit-ring__dot orbit-ring__dot--s"></div>
+      <div class="orbit-ring__dot orbit-ring__dot--w"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── 7. PHILOSOPHY QUOTE ────────────────────────────────────────────────────── -->
+<section class="quote-section">
+  <div class="quote-inner" data-reveal>
+    <p class="quote-label">Filosofía de inversión</p>
+    <blockquote class="quote-text">
+      La disciplina se ve tanto en lo que decidimos ejecutar como en lo que decidimos no hacer.
+    </blockquote>
+  </div>
+</section>
+
+
+<!-- ─── 8. TRANSPARENCIA — dark photo bg ──────────────────────────────────────── -->
+<section class="transparencia-section">
+  <div class="transparencia-photo-bg"></div>
+  <div class="transparencia-overlay"></div>
+  <div class="transparencia-content">
+    <h2 class="transparencia-title" data-reveal>
+      La transparencia no es<br>
+      marketing.<br>
+      <em>Es ingeniería de riesgo.</em>
+    </h2>
+  </div>
+  <div class="transparencia-quote" data-reveal>
+    <p class="transparencia-quote__text">
+      "La transparencia no es una ventaja competitiva. Es un requisito mínimo para ganar y mantener la confianza de un inversor sofisticado."
+    </p>
+    <p class="transparencia-quote__attr">Riverwalk · Principios de gobierno</p>
+  </div>
+</section>
+
+
+<!-- ─── 9. CAPITAL / INVERSORES — accordion ────────────────────────────────────── -->
+<section id="inversores" class="capital-section capital-section--accordion">
+  <div class="capital-acc__grid">
+    <div class="capital-acc__left">
+      <p class="s-label" data-reveal>Para inversores</p>
+      <h2 class="capital-acc__title" data-reveal>
+        Capital estructurado.<br>
+        <em>Gobierno institucional.</em>
+      </h2>
+    </div>
+    <div class="capital-acc__right">
+
+      <details class="cap-acc-item" data-reveal>
+        <summary class="cap-acc-summary">
+          <span class="cap-acc-title">Coinversión directa en operaciones prime</span>
+          <svg class="cap-acc-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="cap-acc-body">
+          <p>Participación en operaciones individuales de reposicionamiento residencial en Madrid prime. Procesos bilaterales y estructurados con reporting periódico. Para inversores privados cualificados con exposición directa al activo.</p>
+        </div>
+      </details>
+
+      <details class="cap-acc-item" data-reveal>
+        <summary class="cap-acc-summary">
+          <span class="cap-acc-title">Coinversión en edificios y desarrollos</span>
+          <svg class="cap-acc-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="cap-acc-body">
+          <p>Operaciones de mayor escala con estructura de co-inversores y Riverwalk como promotora exclusiva. Para family offices e inversores institucionales que buscan activos singulares en Madrid con control operativo completo.</p>
+        </div>
+      </details>
+
+      <details class="cap-acc-item" data-reveal>
+        <summary class="cap-acc-summary">
+          <span class="cap-acc-title">Vehículos de inversión estructurados</span>
+          <svg class="cap-acc-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="cap-acc-body">
+          <p>Estructuras formales con gobierno corporativo, comité de inversión, reporting institucional y compliance alineado con estándares bancarios. Presentable como producto financiero diferenciado ante entidades de banca privada.</p>
+        </div>
+      </details>
+
+      <details class="cap-acc-item" data-reveal>
+        <summary class="cap-acc-summary">
+          <span class="cap-acc-title">Escala institucional · Branded Residences</span>
+          <svg class="cap-acc-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="cap-acc-body">
+          <p>Desarrollo de residencias de marca en activos de referencia. Operaciones ultra-premium con operadores internacionales, salida a compradores UHNW y comercialización controlada a través de canales privados internacionales.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── 10. FOCO GEOGRÁFICO ────────────────────────────────────────────────────── -->
+<section id="foco" class="foco-section">
+
+  <h2 class="foco-title" aria-hidden="true">Foco&nbsp;&nbsp;Geográfico</h2>
+
+  <!-- Photo cards -->
+  <div class="foco-photos">
+    <div class="foco-photo-card">
+      <div class="foco-photo-card__img foco-photo--salamanca" style="background-image: url('assets/photos/madrid-salamanca.jpg')"></div>
+      <div class="foco-photo-card__label">
+        <span class="foco-photo-card__name">Bº Salamanca</span>
+        <span class="foco-photo-card__num">01</span>
+      </div>
+    </div>
+    <div class="foco-photo-card">
+      <div class="foco-photo-card__img foco-photo--almagro" style="background-image: url('assets/photos/madrid-almagro.jpg')"></div>
+      <div class="foco-photo-card__label">
+        <span class="foco-photo-card__name">Almagro</span>
+        <span class="foco-photo-card__num">02</span>
+      </div>
+    </div>
+    <div class="foco-photo-card">
+      <div class="foco-photo-card__img foco-photo--jeronimos" style="background-image: url('assets/photos/madrid-jeronimos.jpg')"></div>
+      <div class="foco-photo-card__label">
+        <span class="foco-photo-card__name">Jerónimos</span>
+        <span class="foco-photo-card__num">03</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text + wide photo -->
+  <div class="foco-body">
+    <div class="foco-body__text" data-reveal>
+      <p class="s-label">Foco geográfico</p>
+      <p class="foco-body__desc">
+        Riverwalk opera exclusivamente en activos de primera línea en los barrios de mayor demanda estructural de Madrid: Salamanca, Chamberí, Almagro, Castellana y Jerónimos. Zonas que no solo retienen valor, sino que lo incrementan en ciclos adversos.
+      </p>
+      <p class="foco-body__desc">
+        El foco geográfico no es una restricción operativa, es una ventaja competitiva: conocimiento micro-local profundo, red de proveedores consolidada y visibilidad sobre el pipeline antes de que salga a mercado.
+      </p>
+    </div>
+    <div class="foco-body__photo">
+      <div class="foco-body__photo-inner" style="background-image: url('assets/photos/madrid-aerial.jpg'); background-color: #1e2830;"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ─── 11. CONTACTO ──────────────────────────────────────────────────────────── -->
+<section id="contacto" class="contacto-section">
+  <div class="contacto-cta" data-reveal>
+    <p class="contacto-brand">Riverwalk</p>
+    <h2 class="contacto-title">
+      Las mejores<br>oportunidades<br><em>no son públicas.</em>
+    </h2>
+    <p class="contacto-text">
+      Trabajamos con un número limitado de inversores en procesos privados y estructurados. Si su perfil es afín a nuestra tesis de inversión, le invitamos a iniciar una conversación.
+    </p>
+    <a href="mailto:inversores@riverwalk.es" class="btn btn--primary">Iniciar conversación</a>
+    <p class="contacto-disclaimer">
+      Riverwalk Real Estate Investments opera en el marco de la normativa vigente de inversión inmobiliaria privada. Las operaciones se estructuran con inversores cualificados en procesos bilaterales. Esta web tiene carácter exclusivamente informativo y no constituye oferta pública de inversión.
+    </p>
+  </div>
+  <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpznkpqz" method="POST">
+    <div class="form-field">
+      <label>Nombre completo</label>
+      <input type="text" name="nombre" placeholder="Su nombre" required>
+    </div>
+    <div class="form-field">
+      <label>Email institucional</label>
+      <input type="email" name="email" placeholder="nombre@empresa.com" required>
+    </div>
+    <div class="form-field">
+      <label>Perfil de inversor</label>
+      <select name="perfil">
+        <option value="" disabled selected>Seleccione su perfil</option>
+        <option>Family Office</option>
+        <option>Banca Privada</option>
+        <option>Inversor Privado Cualificado</option>
+        <option>Capital Institucional</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label>Mensaje</label>
+      <input type="text" name="mensaje" placeholder="Cuéntenos brevemente su interés">
+    </div>
+    <button type="submit" class="btn btn--primary">Enviar</button>
+    <div id="form-success" style="display:none;">
+      <p>Gracias. Le contactaremos en los próximos días.</p>
+    </div>
+  </form>
 </section>
 
 
