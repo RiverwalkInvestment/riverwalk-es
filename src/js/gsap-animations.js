@@ -1,17 +1,23 @@
 // GSAP Animations — Riverwalk · nfinitepaper design system
-// Requires gsap + ScrollTrigger loaded globally via CDN
+// Requires gsap + ScrollTrigger + Lenis loaded globally via CDN
+
+import { initCanvasBg } from './canvas-bg.js';
 
 export function initGsapAnimations() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // ─── LENIS SMOOTH SCROLL ──────────────────────────────────────────────────
+  // ── LENIS SMOOTH SCROLL ────────────────────────────────────────────────────
+  let lenis;
   if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+    lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
     document.documentElement.classList.add('lenis');
   }
+
+  // ── CANVAS BG — start immediately (renders while invisible) ───────────────
+  const canvasBg = initCanvasBg();
 
   const mm = gsap.matchMedia();
 
@@ -24,43 +30,53 @@ export function initGsapAnimations() {
     (ctx) => {
       const { isDesktop, reduceMotion } = ctx.conditions;
 
-      // ─── REDUCED MOTION ────────────────────────────────────────────────────
+      // ── REDUCED MOTION ─────────────────────────────────────────────────────
       if (reduceMotion) {
-        gsap.set(".hero__kicker, .hero__h1, [data-reveal]", { autoAlpha: 1, y: 0 });
-        document.querySelectorAll(".alineacion__panel").forEach((p, i) => {
-          if (i === 0) p.classList.add("is-active");
-        });
+        gsap.set(".hero__kicker, .hero__h1, .hero__sub, [data-reveal]", { autoAlpha: 1, y: 0 });
         return;
       }
 
-      // ─── 1. HERO ENTRY ─────────────────────────────────────────────────────
-      const h1 = document.querySelector(".hero__h1");
+      // ── 1. HERO ENTRY ──────────────────────────────────────────────────────
+      const h1     = document.querySelector(".hero__h1");
       const kicker = document.querySelector(".hero__kicker");
+      const sub    = document.querySelector(".hero__sub");
 
-      // Split H1 into word spans (line by line to preserve <br>)
+      // Split H1 words by line (preserves <br>)
       if (h1) {
         const lines = h1.innerHTML.split(/<br\s*\/?>/i);
         h1.innerHTML = lines
           .map((line) =>
             line.trim()
-              .split(/\s+/)
-              .filter(Boolean)
+              .split(/\s+/).filter(Boolean)
               .map((w) => `<span class="word-wrap"><span class="word">${w}</span></span>`)
               .join(" ")
           )
           .join("<br>");
+        gsap.set(".hero__h1 .word", { autoAlpha: 0, yPercent: 120 });
+      }
+      gsap.set([kicker, sub].filter(Boolean), { autoAlpha: 0, y: 16 });
+
+      gsap.timeline({ delay: 0.15 })
+        .to(kicker, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0)
+        .to(".hero__h1 .word", { autoAlpha: 1, yPercent: 0, duration: 1.1, stagger: 0.08, ease: "power3.out" }, 0.2)
+        .to(sub, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+
+      // Ghost "rw" parallax
+      const ghost = document.querySelector(".hero__ghost");
+      if (ghost) {
+        gsap.to(ghost, {
+          yPercent: 12,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+          }
+        });
       }
 
-      const wordEls = document.querySelectorAll(".hero__h1 .word");
-
-      gsap.set(wordEls, { autoAlpha: 0, y: 50 });
-      gsap.set(kicker, { autoAlpha: 0, y: 16 });
-
-      gsap.timeline({ delay: 0.2 })
-        .to(kicker,  { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0)
-        .to(wordEls, { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.10, ease: "power3.out" }, 0.15);
-
-      // ─── 2. STICKY NAV — transparent on hero ──────────────────────────────
+      // ── 2. STICKY NAV ──────────────────────────────────────────────────────
       const nav = document.getElementById("nav");
       if (nav) {
         ScrollTrigger.create({
@@ -72,151 +88,153 @@ export function initGsapAnimations() {
         });
       }
 
-      // ─── 3. SCROLL REVEALS ─────────────────────────────────────────────────
+      // ── 3. SCROLL REVEALS — [data-reveal] ──────────────────────────────────
       gsap.utils.toArray("[data-reveal]").forEach((el) => {
         gsap.fromTo(el,
-          { autoAlpha: 0, y: 24 },
+          { autoAlpha: 0, y: 28 },
           {
             autoAlpha: 1, y: 0,
-            duration: 0.9,
+            duration: 0.85,
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 72%",
+              start: "top 75%",
               toggleActions: "play none none none"
             }
           }
         );
       });
 
-      // ─── 4. METODOLOGÍA — sticky background ────────────────────────────────
-      if (isDesktop) {
-        const metodoIntro = document.querySelector(".metodo-intro h2");
-        if (metodoIntro) {
-          gsap.fromTo(metodoIntro,
-            { autoAlpha: 0, y: 40 },
-            {
-              autoAlpha: 1, y: 0,
-              duration: 1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: "#metodologia",
-                start: "top 60%"
-              }
-            }
-          );
-        }
-      }
+      // ── 4. METODOLOGÍA CANVAS — scroll-driven progress ────────────────────
+      if (isDesktop && canvasBg) {
+        const section    = document.getElementById("metodologia");
+        const progressBar = document.getElementById("metodo-progress-bar");
 
-      // ─── 5. ALINEACIÓN — rotating circle + panel switching ─────────────────
-      if (isDesktop) {
-        const alineacion  = document.querySelector("#alineacion .alineacion__spacer");
-        const circleEl    = document.querySelector(".alineacion__circle-svg");
-        const arrowsEl    = document.querySelector(".alineacion__arrows-svg");
-        const panels      = document.querySelectorAll(".alineacion__panel");
-
-        if (alineacion && circleEl && panels.length) {
-          // Activate first panel immediately
-          panels[0].classList.add("is-active");
-
+        if (section) {
+          // How tall is the section (includes sticky + spacers + content parts)
           ScrollTrigger.create({
-            trigger: alineacion,
+            trigger: section,
             start: "top top",
             end: "bottom bottom",
-            scrub: 1.2,
+            scrub: true,
             onUpdate: (self) => {
-              const progress = self.progress;
+              const p = self.progress;
 
-              // Rotate circle and arrows together
-              const rotation = progress * 360;
-              gsap.set([circleEl, arrowsEl], {
-                rotation,
-                transformOrigin: "center center"
-              });
+              // Drive canvas particles
+              canvasBg.setProgress(p);
 
-              // Panel switching across 3 panels
-              const panelIndex = Math.min(
-                Math.floor(progress * panels.length),
-                panels.length - 1
-              );
-
-              panels.forEach((p, i) => {
-                p.classList.toggle("is-active", i === panelIndex);
-              });
+              // Drive progress bar
+              if (progressBar) {
+                progressBar.style.width = `${p * 100}%`;
+              }
             }
+          });
+
+          // Reveal intro h2 when section enters view
+          const introH2 = document.querySelector(".metodo-intro h2");
+          if (introH2) {
+            gsap.fromTo(introH2,
+              { autoAlpha: 0, y: 40 },
+              {
+                autoAlpha: 1, y: 0, duration: 1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: introH2, start: "top 65%" }
+              }
+            );
+          }
+
+          // Fade metodo-part1 children
+          gsap.utils.toArray(".metodo-part1 h3, .metodo-part1__body, .metodo-legend__item").forEach((el, i) => {
+            gsap.fromTo(el,
+              { autoAlpha: 0, y: 20 },
+              {
+                autoAlpha: 1, y: 0,
+                duration: 0.75,
+                delay: i * 0.1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 72%" }
+              }
+            );
+          });
+
+          // Fade part2 items
+          gsap.utils.toArray(".metodo-stat-item").forEach((el, i) => {
+            gsap.fromTo(el,
+              { autoAlpha: 0, y: 20 },
+              {
+                autoAlpha: 1, y: 0,
+                duration: 0.75,
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 78%" }
+              }
+            );
           });
         }
       }
 
-      // ─── 6. NEWS DRAG SCROLL ────────────────────────────────────────────────
-      const track = document.getElementById("news-track");
-      if (track) {
-        let isDragging = false, startX = 0, scrollLeft = 0;
-
-        track.addEventListener("mousedown", (e) => {
-          isDragging = true;
-          startX = e.pageX - track.offsetLeft;
-          scrollLeft = track.scrollLeft;
-          track.style.cursor = "grabbing";
+      // ── 5. RISK GRID — hover opacity effect ──────────────────────────────
+      const riesgoGrid = document.querySelector(".riesgo-grid");
+      if (riesgoGrid) {
+        const items = riesgoGrid.querySelectorAll(".riesgo-item");
+        riesgoGrid.addEventListener("mouseenter", () => {
+          items.forEach(item => item.style.opacity = "0.4");
         });
-        window.addEventListener("mouseup", () => {
-          isDragging = false;
-          track.style.cursor = "grab";
+        riesgoGrid.addEventListener("mouseleave", () => {
+          items.forEach(item => item.style.opacity = "1");
         });
-        track.addEventListener("mousemove", (e) => {
-          if (!isDragging) return;
-          e.preventDefault();
-          const x = e.pageX - track.offsetLeft;
-          const walk = (x - startX) * 1.5;
-          track.scrollLeft = scrollLeft - walk;
+        items.forEach(item => {
+          item.addEventListener("mouseenter", () => item.style.opacity = "1");
         });
-        // Touch support
-        track.addEventListener("touchstart", (e) => {
-          startX = e.touches[0].pageX - track.offsetLeft;
-          scrollLeft = track.scrollLeft;
-        }, { passive: true });
-        track.addEventListener("touchmove", (e) => {
-          const x = e.touches[0].pageX - track.offsetLeft;
-          track.scrollLeft = scrollLeft - (x - startX);
-        }, { passive: true });
       }
 
-      // ─── 7. MARKET SECTIONS — stagger children on scroll ───────────────────
-      document.querySelectorAll(".market-section").forEach((section) => {
-        const children = section.querySelectorAll("h2, p");
-        gsap.fromTo(children,
+      // ── 6. OPERACIONES — hover dim siblings ────────────────────────────────
+      const opList = document.querySelector(".operaciones-list");
+      if (opList) {
+        const opItems = opList.querySelectorAll(".op-item");
+        opList.addEventListener("mouseenter", () => {
+          opItems.forEach(i => gsap.to(i, { opacity: 0.4, duration: 0.25 }));
+        });
+        opList.addEventListener("mouseleave", () => {
+          opItems.forEach(i => gsap.to(i, { opacity: 1, duration: 0.25 }));
+        });
+        opItems.forEach(item => {
+          item.addEventListener("mouseenter", () => gsap.to(item, { opacity: 1, duration: 0.15 }));
+        });
+      }
+
+      // ── 7. CAPITAL GRID — same pattern ────────────────────────────────────
+      const capitalGrid = document.querySelector(".capital-grid");
+      if (capitalGrid) {
+        const capItems = capitalGrid.querySelectorAll(".cap-item");
+        capitalGrid.addEventListener("mouseenter", () => {
+          capItems.forEach(i => i.style.opacity = "0.5");
+        });
+        capitalGrid.addEventListener("mouseleave", () => {
+          capItems.forEach(i => i.style.opacity = "1");
+        });
+        capItems.forEach(item => {
+          item.addEventListener("mouseenter", () => item.style.opacity = "1");
+        });
+      }
+
+      // ── 8. PRINCIPIO — fade-in ─────────────────────────────────────────────
+      const principio = document.querySelector(".principio-quote");
+      if (principio) {
+        gsap.fromTo(principio,
           { autoAlpha: 0, y: 20 },
           {
             autoAlpha: 1, y: 0,
-            duration: 0.75,
-            stagger: 0.12,
+            duration: 1.1,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 68%"
-            }
-          }
-        );
-      });
-
-      // ─── 8. NOVEDADES TITLE — split reveal ─────────────────────────────────
-      const novedadesTitle = document.querySelector(".novedades__title");
-      if (novedadesTitle) {
-        const spans = novedadesTitle.querySelectorAll("span");
-        gsap.fromTo(spans,
-          { autoAlpha: 0, y: 30 },
-          {
-            autoAlpha: 1, y: 0,
-            duration: 0.9,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: novedadesTitle,
-              start: "top 72%"
-            }
+            scrollTrigger: { trigger: principio, start: "top 65%" }
           }
         );
       }
+
+      return () => {
+        // Cleanup on mm context dispose
+        if (canvasBg) canvasBg.destroy?.();
+      };
     }
   );
 }
