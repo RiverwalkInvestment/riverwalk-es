@@ -1,94 +1,115 @@
-/* Design Tokens — Riverwalk · nfinitepaper visual system */
+/* ─── DESIGN TOKENS — Riverwalk · nfinitepaper design system ───────────────── */
+/* Exact match to nfinitepaper CSS: typography, colors, spacing, grid, easings  */
 
-@font-face {
-  font-family: 'Geist';
-  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Thin.woff2') format('woff2');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
+/* ── FONT ────────────────────────────────────────────────────────────────────── */
+/* Space Grotesk — closest freely available match to Hypertext Medium */
+
+/* ── BASE RESET ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
 }
 
-@font-face {
-  font-family: 'Geist';
-  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-UltraLight.woff2') format('woff2');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist';
-  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist';
-  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root {
-  /* Fonts */
-  --font-display: 'Instrument Serif', serif;
-  --font-body: 'Geist', -apple-system, sans-serif;
-
-  /* Colors — nfinitepaper light scheme */
-  --bg-base:      #fffaf6;
-  --bg-warm:      #e9e2d2;
-  --bg-blue:      #dff2f3;
-  --bg-dark:      #0f131a;
-  --text-primary: #0f131a;
-  --text-muted:   rgba(15,19,26,0.60);
-  --text-inverse: #fffaf6;
-  --border:       rgba(15,19,26,0.12);
-  --accent-blue:  #71cbe1;
-  --accent-water: #8ab4fc;
-
-  /* Typography scale */
-  --text-display: clamp(2.5rem, 7vw, 6.25rem);
-  --text-h2-lg:   clamp(1.5625rem, 4vw, 3.75rem);
-  --text-h2:      clamp(1.25rem, 2.5vw, 2.25rem);
-  --text-h3:      clamp(1.125rem, 2.2vw, 1.3125rem);
-  --text-body:    0.8125rem;
-  --text-small:   0.6875rem;
-
-  --lh-tight:     1.05;
-  --lh-normal:    1.2;
-  --ls-tight:     -0.03em;
-  --ls-none:      0em;
-  --ls-caps:      0.08em;
-
-  /* Layout */
-  --margin-outer: max(3.2vw, 24px);
-  --section-pad:  clamp(2.5rem, 6vw, 6rem);
-  --container:    1280px;
-
-  /* Spacing */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-  --space-xl: 6rem;
-
-  /* Transitions */
-  --ease-premium:    cubic-bezier(0.16, 1.08, 0.38, 0.98);
-  --transition-base: 0.35s var(--ease-premium);
-  --transition-slow: 0.7s var(--ease-premium);
-
-  color-scheme: light;
-}
-
-body {
-  font-family: var(--font-body);
-  font-weight: 300;
-  color: var(--text-primary);
-  background-color: var(--bg-base);
-  font-size: var(--text-body);
-  line-height: 1.6;
+html {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: contain;
+
+  /* Grid system — exact nfinitepaper values */
+  --sbw: 0px;
+  --vh: 1vh;
+  --margin: calc(3.2vw - var(--sbw) * 0.032);
+  --gutter: calc(3.2vw - var(--sbw) * 0.032);
+  --column: calc(12.9333vw - var(--sbw) * 0.129333);
+
+  /* Screen height helpers */
+  --screen-height: 100svh;
+  --screen-height-max: 100lvh;
+  --header-height: calc(94rem / 16);
+
+  /* Colors */
+  --color-black:      #0f131a;
+  --color-cream:      #fffaf6;
+  --color-dark-cream: #e9e2d2;
+  --color-light-blue: #dff2f3;
+  --color-dark-blue:  #71cbe1;
+  --color-water-blue: #8ab4fc;
+  --color-grey:       rgba(15, 19, 26, 0.60);
+  --color-border:     rgba(15, 19, 26, 0.12);
+
+  /* Typography scale — px-precise like nfinitepaper */
+  --text-11:  0.6875rem;
+  --text-13:  0.8125rem;
+  --text-14:  0.875rem;
+  --text-16:  1rem;
+  --text-21:  1.3125rem;
+  --text-25:  1.5625rem;
+  --text-36:  2.25rem;
+  --text-48:  3rem;
+  --text-60:  3.75rem;
+  --text-65:  4.0625rem;
+  --text-84:  5.25rem;
+  --text-100: 6.25rem;
+
+  /* Line heights */
+  --lh-tight:  1.05;
+  --lh-normal: 1.2;
+  --lh-loose:  1.4;
+
+  /* Letter spacing */
+  --ls-tight:  -0.03em;
+  --ls-normal: 0em;
+
+  /* Easings — exact nfinitepaper beziers */
+  --ease-expo-out:    cubic-bezier(.16, 1.08, .38, .98);
+  --ease-quart-out:   cubic-bezier(.26, 1.04, .54,  1);
+  --ease-cubic-inout: cubic-bezier(.66,  0,   .34,  1);
+
+  /* Durations */
+  --dur-300:  300ms;
+  --dur-400:  400ms;
+  --dur-500:  500ms;
+  --dur-700:  700ms;
+  --dur-2000: 2000ms;
+
+  /* Column width shortcuts */
+  --col-3:  calc(3 * var(--column) + 2 * var(--gutter));
+  --col-4:  calc(4 * var(--column) + 3 * var(--gutter));
+  --col-5:  calc(5 * var(--column) + 4 * var(--gutter));
+  --col-5w: calc(5 * var(--column) + 5 * var(--gutter));
+  --col-6:  calc(6 * var(--column) + 5 * var(--gutter));
+
+  /* Base */
+  color: var(--color-black);
+  background-color: var(--color-cream);
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+  font-size: var(--text-16);
+  line-height: var(--lh-normal);
 }
+
+@media (pointer: fine) {
+  html { --sbw: 17px; }
+}
+
+/* ── TYPOGRAPHY BASE ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+a { color: inherit; text-decoration: inherit; }
+b, strong { font-weight: 600; }
+ol, ul, menu { list-style: none; }
+img, svg, video, canvas { vertical-align: middle; display: block; }
+img, video { max-width: 100%; height: auto; }
+button, input, select, textarea { font: inherit; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── LENIS SMOOTH SCROLL ────────────────────────────────────────────────────── */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
