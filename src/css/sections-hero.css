@@ -79,8 +79,24 @@
 }
 .nav__cta:hover { opacity: 0.8; }
 
+/* ── LOGO IMAGE ──────────────────────────────────────────────────────────────── */
+/* Logo PNG is white text on black bg.
+   mix-blend-mode:screen  → black disappears over dark hero, white shows.
+   is-scrolled: invert to black text + multiply → white bg disappears over light sections. */
+.nav__logo {
+  display: block;
+  height: 18px;
+  width: auto;
+  mix-blend-mode: screen;
+  transition: filter var(--dur-400) var(--ease-expo-out);
+}
+
 /* Scrolled state — nav over light bg */
 .site-header.is-scrolled .nav__brand { color: var(--color-black); }
+.site-header.is-scrolled .nav__logo {
+  mix-blend-mode: multiply;
+  filter: invert(1);
+}
 .site-header.is-scrolled .nav__links a { color: rgba(15,19,26,0.55); }
 .site-header.is-scrolled .nav__links a:hover { color: var(--color-black); }
 .site-header.is-scrolled .nav__cta {
@@ -100,26 +116,16 @@
   align-items: center;
 }
 
-/* Video background */
-.hero__video-bg {
+/* Photo background */
+.hero__photo-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
-  background-color: #1a2030; /* fallback while video loads */
-}
-
-.hero__video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  pointer-events: none;
+  background-image: url('../assets/photos/madrid-hero.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  background-color: #1a2030; /* fallback */
 }
 
 /* Dark overlay */
@@ -185,7 +191,11 @@
 
 /* Hero line animation spans */
 .hero__bright   { display: block; will-change: transform, opacity; }
-.hero__dim-wrap { display: block; will-change: transform, opacity; }
+.hero__dim-wrap {
+  display: block;
+  will-change: transform, opacity;
+  margin-top: 0.15em; /* small breathing room between the two halves */
+}
 
 /* ── SUB-HERO ────────────────────────────────────────────────────────────────── */
 .sub-hero {

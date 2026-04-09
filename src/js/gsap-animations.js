@@ -41,20 +41,18 @@ export function initGsapAnimations() {
       const dim = document.querySelector(".hero__h1-dim");
 
       if (h1) {
-        // Animate bright part and dim part separately so the span is not broken
-        gsap.set(h1, { autoAlpha: 1 }); // h1 visible, children animate in
+        gsap.set(h1, { autoAlpha: 1 });
 
-        // Collect the direct text node + br lines before the .hero__h1-dim span:
-        // We'll wrap the bright content in a helper span for animation
-        const brightHTML  = h1.innerHTML.split('<span class="hero__h1-dim">')[0];
-        const dimHTML     = dim ? dim.innerHTML : '';
+        const parts     = h1.innerHTML.split('<span class="hero__h1-dim">');
+        const brightRaw = parts[0].replace(/<br\s*\/?>\s*$/i, '').trim();
+        const dimRaw    = dim ? dim.innerHTML : '';
 
         h1.innerHTML =
-          `<span class="hero__bright">${brightHTML.trim()}</span>` +
-          (dim ? `<br><span class="hero__h1-dim hero__dim-wrap">${dimHTML}</span>` : '');
+          `<span class="hero__bright">${brightRaw}</span>` +
+          (dimRaw ? `<span class="hero__h1-dim hero__dim-wrap">${dimRaw}</span>` : '');
 
-        gsap.set(".hero__bright", { autoAlpha: 0, y: 26 });
-        gsap.set(".hero__dim-wrap", { autoAlpha: 0, y: 26 });
+        gsap.set(".hero__bright",   { autoAlpha: 0, y: 30 });
+        gsap.set(".hero__dim-wrap", { autoAlpha: 0, y: 30 });
       }
 
       gsap.timeline({ delay: 0.25 })
