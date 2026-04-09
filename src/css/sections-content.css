@@ -322,7 +322,7 @@
 @media (min-width: 800px) {
   .metodo-part2__title { font-size: var(--text-84); }
 }
-.metodo-part2__title span:last-child { align-self: flex-end; color: rgba(255,250,246,0.35); }
+.metodo-part2__title span:last-child { align-self: flex-start; color: rgba(255,250,246,0.35); }
 
 .metodo-part2__content {
   position: relative;

@@ -108,12 +108,18 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100svh;
+  min-height: 500px;
   overflow: clip;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 800px) {
+  .hero {
+    height: 750px;
+    min-height: unset;
+  }
 }
 
 /* Photo background */
@@ -196,7 +202,7 @@
 /* ── SUB-HERO ────────────────────────────────────────────────────────────────── */
 .sub-hero {
   background-color: var(--color-cream);
-  padding: 7rem var(--margin);
+  padding: 2.5rem var(--margin) 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,12 +216,12 @@
   line-height: var(--lh-normal);
   letter-spacing: var(--ls-tight);
   color: var(--color-black);
-  max-width: 22rem;
+  max-width: 26rem;
 }
 @media (min-width: 800px) {
   .sub-hero__text {
     font-size: var(--text-36);
-    max-width: 28rem;
+    max-width: 34rem;
   }
 }
 
