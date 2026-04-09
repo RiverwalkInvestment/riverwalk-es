@@ -43,21 +43,23 @@ export function initGsapAnimations() {
       if (h1) {
         gsap.set(h1, { autoAlpha: 1 });
 
+        // Wrap bright part (before .hero__h1-dim) in its own inline span
         const parts     = h1.innerHTML.split('<span class="hero__h1-dim">');
-        const brightRaw = parts[0].replace(/<br\s*\/?>\s*$/i, '').trim();
+        const brightRaw = parts[0].trim();
         const dimRaw    = dim ? dim.innerHTML : '';
 
         h1.innerHTML =
           `<span class="hero__bright">${brightRaw}</span>` +
           (dimRaw ? `<span class="hero__h1-dim hero__dim-wrap">${dimRaw}</span>` : '');
 
-        gsap.set(".hero__bright",   { autoAlpha: 0, y: 30 });
-        gsap.set(".hero__dim-wrap", { autoAlpha: 0, y: 30 });
+        // Inline spans: animate opacity only (no Y — would break inline flow)
+        gsap.set(".hero__bright",   { opacity: 0 });
+        gsap.set(".hero__dim-wrap", { opacity: 0 });
       }
 
-      gsap.timeline({ delay: 0.25 })
-        .to(".hero__bright",   { autoAlpha: 1, y: 0, duration: 1.0, ease: "power3.out" }, 0)
-        .to(".hero__dim-wrap", { autoAlpha: 1, y: 0, duration: 1.0, ease: "power3.out" }, 0.18);
+      gsap.timeline({ delay: 0.3 })
+        .to(".hero__bright",   { opacity: 1, duration: 1.1, ease: "power2.out" }, 0)
+        .to(".hero__dim-wrap", { opacity: 1, duration: 1.1, ease: "power2.out" }, 0.25);
 
       // Ghost "rw" parallax
       const ghost = document.querySelector(".hero__ghost");

@@ -189,13 +189,9 @@
 .word-wrap { display: inline-block; overflow: hidden; }
 .word      { display: inline-block; will-change: transform, opacity; }
 
-/* Hero line animation spans */
-.hero__bright   { display: block; will-change: transform, opacity; }
-.hero__dim-wrap {
-  display: block;
-  will-change: transform, opacity;
-  margin-top: 0.15em; /* small breathing room between the two halves */
-}
+/* Hero animation spans — inline so the colour break happens mid-line like in Figma */
+.hero__bright   { display: inline; will-change: opacity; }
+.hero__dim-wrap { display: inline; will-change: opacity; }
 
 /* ── SUB-HERO ────────────────────────────────────────────────────────────────── */
 .sub-hero {
