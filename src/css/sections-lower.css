@@ -1,69 +1,81 @@
 /* ─── LOWER SECTIONS ─────────────────────────────────────────────────────────── */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   QUOTE SECTION
+   QUOTE SECTION (Figma: large centered quote, label in border box)
 ───────────────────────────────────────────────────────────────────────────── */
 .quote-section {
   background-color: var(--color-cream);
   border-top: 1px solid var(--color-border);
-  padding: 9rem var(--margin);
+  padding: 6rem var(--margin) 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.quote-inner { max-width: var(--col-5); }
+.quote-inner {
+  max-width: 52rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
 .quote-label {
+  display: inline-flex;
+  align-items: center;
   font-size: var(--text-11);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: rgba(15,19,26,0.28);
-  margin-bottom: 2.5rem;
+  color: rgba(15,19,26,0.45);
+  border: 1px solid rgba(15,19,26,0.15);
+  padding: 0.45em 1em;
+  border-radius: 2px;
 }
 .quote-text {
-  font-size: var(--text-25);
-  font-weight: 500;
-  line-height: var(--lh-tight);
+  font-size: var(--text-36);
+  font-weight: 400;
+  line-height: 1.1;
   letter-spacing: var(--ls-tight);
   color: var(--color-black);
 }
-@media (min-width: 800px) { .quote-text { font-size: var(--text-48); } }
+@media (min-width: 800px) { .quote-text { font-size: var(--text-65); } }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TRANSPARENCIA — dark photo bg
+   TRANSPARENCIA — dark photo bg (Figma: 1200×750 min, text centered)
 ───────────────────────────────────────────────────────────────────────────── */
 .transparencia-section {
   position: relative;
   background-color: var(--color-black);
-  min-height: 80svh;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  padding: 7rem var(--margin);
+  min-height: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: clip;
 }
 
 .transparencia-photo-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/photos/madrid-escalera.jpg');
+  background-image: url('../assets/photos/madrid-cortes.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.35;
+  opacity: 0.45;
   background-color: #0f131a;
 }
 
 .transparencia-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(10,13,18,0.5) 0%, rgba(10,13,18,0.8) 100%);
+  background: rgba(10,13,18,0.55);
 }
 
 .transparencia-content {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-end;
-  padding-bottom: 4rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem var(--margin);
 }
 
 .transparencia-title {
@@ -72,35 +84,83 @@
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-tight);
   color: var(--color-cream);
+  max-width: 18em;
 }
 @media (min-width: 800px) { .transparencia-title { font-size: var(--text-60); } }
-.transparencia-title em {
-  font-style: italic;
-  font-weight: 300;
-  color: rgba(255,250,246,0.55);
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CEO QUOTE — César Sanz + Forbes Under 30 (Figma: left quote, right photo)
+───────────────────────────────────────────────────────────────────────────── */
+.ceo-quote-section {
+  background-color: var(--color-cream);
+  border-top: 1px solid var(--color-border);
+  padding: 7rem var(--margin);
 }
 
-.transparencia-quote {
-  position: relative;
-  z-index: 1;
-  border-top: 1px solid rgba(255,250,246,0.12);
-  padding-top: 2.5rem;
-  max-width: var(--col-5);
+.ceo-quote__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: start;
 }
-.transparencia-quote__text {
-  font-size: var(--text-16);
+@media (min-width: 800px) {
+  .ceo-quote__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(6 * var(--gutter));
+    align-items: start;
+  }
+}
+
+.ceo-quote__text {
+  font-size: var(--text-21);
   font-style: italic;
   line-height: var(--lh-loose);
-  color: rgba(255,250,246,0.65);
-  font-weight: 300;
-  margin-bottom: 1rem;
+  color: var(--color-black);
+  font-weight: 400;
+  margin-bottom: 2.5rem;
 }
-@media (min-width: 800px) { .transparencia-quote__text { font-size: var(--text-21); } }
-.transparencia-quote__attr {
-  font-size: var(--text-11);
-  letter-spacing: 0.15em;
+@media (min-width: 800px) { .ceo-quote__text { font-size: var(--text-25); } }
+
+.ceo-quote__attr { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.ceo-quote__name {
+  font-size: var(--text-13);
+  font-weight: 500;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(255,250,246,0.28);
+  color: var(--color-black);
+}
+
+.ceo-quote__role {
+  font-size: var(--text-11);
+  color: var(--color-grey);
+  letter-spacing: 0.04em;
+}
+
+.ceo-quote__photo-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: rgba(15,19,26,0.08);
+  border-radius: 2px;
+}
+
+.ceo-quote__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%);
+  display: block;
+}
+
+.ceo-quote__forbes {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 90px;
+  height: auto;
+  display: block;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -200,24 +260,26 @@
   white-space: nowrap;
 }
 
-/* 3-up photo cards */
+/* 5-up photo cards — horizontal strip */
 .foco-photos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
 }
 @media (max-width: 799px) {
-  .foco-photos { grid-template-columns: 1fr; }
+  .foco-photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .foco-photo-card {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   background-color: rgba(15,19,26,0.08);
 }
 @media (max-width: 799px) {
-  .foco-photo-card { aspect-ratio: 4 / 3; }
+  .foco-photo-card { aspect-ratio: 3 / 4; }
 }
 
 .foco-photo-card__img {
@@ -265,7 +327,37 @@
   font-weight: 400;
 }
 
-/* Body: zones list + wide photo */
+.foco-photo-card__arrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,250,246,0.30);
+  border-radius: 50%;
+  font-size: 1rem;
+  color: rgba(255,250,246,0.70);
+  line-height: 1;
+  pointer-events: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+.foco-photo-card:hover .foco-photo-card__arrow {
+  border-color: rgba(255,250,246,0.70);
+  color: var(--color-cream);
+}
+
+/* Body: description text + wide photo */
+.foco-body__desc {
+  font-size: var(--text-13);
+  line-height: var(--lh-loose);
+  color: var(--color-grey);
+  font-weight: 300;
+  max-width: 36em;
+  margin-top: 0.5rem;
+}
 .foco-body {
   display: grid;
   grid-template-columns: 1fr;
