@@ -32,26 +32,33 @@
 <header class="site-header" id="nav">
   <nav class="site-nav">
     <a href="/" class="nav__brand">Riverwalk</a>
-    <ul class="nav__links">
-      <li><a href="#estrategia">Estrategia</a></li>
-      <li><a href="#metodologia">Metodología</a></li>
-      <li><a href="#inversores">Para inversores</a></li>
-    </ul>
-    <a href="#contacto" class="nav__cta">Contact us</a>
+    <div class="nav__right">
+      <ul class="nav__links">
+        <li><a href="#estrategia">Estrategia</a></li>
+        <li><a href="#metodologia">Metodología</a></li>
+        <li><a href="#inversores">Para inversores</a></li>
+      </ul>
+      <a href="#contacto" class="nav__cta">Contact us</a>
+    </div>
   </nav>
 </header>
 
 
 <!-- ─── 1. HERO ───────────────────────────────────────────────────────────────── -->
 <section class="hero">
-  <div class="hero__photo-bg"></div>
+  <!-- Video background -->
+  <div class="hero__video-bg">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero__overlay"></div>
   <div class="hero__ghost" aria-hidden="true">rw</div>
   <div class="hero__content">
     <h1 class="hero__h1">
       La mayoría intenta<br>
       predecir el futuro.<br>
-      <em>Nosotros nos enfocamos<br>en sobrevivir a él.</em>
+      <span class="hero__h1-dim">Nosotros nos enfocamos<br>en sobrevivir a él.</span>
     </h1>
   </div>
 </section>

@@ -20,6 +20,13 @@
   margin-top: 1.25rem;
 }
 
+/* Right-hand nav group: links + CTA */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .nav__brand {
   font-size: var(--text-13);
   font-weight: 500;
@@ -41,6 +48,9 @@
     gap: 2rem;
     list-style: none;
   }
+}
+@media (max-width: 799px) {
+  .nav__right { gap: 0; }
 }
 .nav__links a {
   font-size: var(--text-13);
@@ -90,17 +100,26 @@
   align-items: center;
 }
 
-/* Photo background */
-.hero__photo-bg {
+/* Video background */
+.hero__video-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../assets/photos/madrid-metropolis.jpg');
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  /* Fallback gradient if photo not yet placed */
-  background-color: #1a2030;
+  overflow: hidden;
+  background-color: #1a2030; /* fallback while video loads */
+}
+
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 /* Dark overlay */
@@ -110,9 +129,9 @@
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(10,13,18,0.45) 0%,
-    rgba(10,13,18,0.25) 40%,
-    rgba(10,13,18,0.55) 100%
+    rgba(10,13,18,0.30) 0%,
+    rgba(10,13,18,0.20) 40%,
+    rgba(10,13,18,0.50) 100%
   );
 }
 
@@ -155,15 +174,18 @@
   opacity: 0;
   max-width: 16em;
 }
-.hero__h1 em {
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(255,250,246,0.75);
+/* Second half of hero copy — same weight, reduced opacity */
+.hero__h1-dim {
+  color: rgba(255,250,246,0.55);
 }
 
 /* Word split spans injected by GSAP */
 .word-wrap { display: inline-block; overflow: hidden; }
 .word      { display: inline-block; will-change: transform, opacity; }
+
+/* Hero line animation spans */
+.hero__bright   { display: block; will-change: transform, opacity; }
+.hero__dim-wrap { display: block; will-change: transform, opacity; }
 
 /* ── SUB-HERO ────────────────────────────────────────────────────────────────── */
 .sub-hero {

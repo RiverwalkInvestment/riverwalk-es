@@ -38,23 +38,28 @@ export function initGsapAnimations() {
 
       // ── 1. HERO ENTRY ──────────────────────────────────────────────────────
       const h1 = document.querySelector(".hero__h1");
+      const dim = document.querySelector(".hero__h1-dim");
 
-      // Split H1 words by line (preserves <br>)
       if (h1) {
-        const lines = h1.innerHTML.split(/<br\s*\/?>/i);
-        h1.innerHTML = lines
-          .map((line) =>
-            line.trim()
-              .split(/\s+/).filter(Boolean)
-              .map((w) => `<span class="word-wrap"><span class="word">${w}</span></span>`)
-              .join(" ")
-          )
-          .join("<br>");
-        gsap.set(".hero__h1 .word", { autoAlpha: 0, yPercent: 120 });
+        // Animate bright part and dim part separately so the span is not broken
+        gsap.set(h1, { autoAlpha: 1 }); // h1 visible, children animate in
+
+        // Collect the direct text node + br lines before the .hero__h1-dim span:
+        // We'll wrap the bright content in a helper span for animation
+        const brightHTML  = h1.innerHTML.split('<span class="hero__h1-dim">')[0];
+        const dimHTML     = dim ? dim.innerHTML : '';
+
+        h1.innerHTML =
+          `<span class="hero__bright">${brightHTML.trim()}</span>` +
+          (dim ? `<br><span class="hero__h1-dim hero__dim-wrap">${dimHTML}</span>` : '');
+
+        gsap.set(".hero__bright", { autoAlpha: 0, y: 26 });
+        gsap.set(".hero__dim-wrap", { autoAlpha: 0, y: 26 });
       }
 
       gsap.timeline({ delay: 0.25 })
-        .to(".hero__h1 .word", { autoAlpha: 1, yPercent: 0, duration: 1.1, stagger: 0.07, ease: "power3.out" }, 0);
+        .to(".hero__bright",   { autoAlpha: 1, y: 0, duration: 1.0, ease: "power3.out" }, 0)
+        .to(".hero__dim-wrap", { autoAlpha: 1, y: 0, duration: 1.0, ease: "power3.out" }, 0.18);
 
       // Ghost "rw" parallax
       const ghost = document.querySelector(".hero__ghost");
