@@ -167,65 +167,6 @@ export function initGsapAnimations() {
         }
       }
 
-      // ── 5. RISK GRID — hover opacity effect ──────────────────────────────
-      const riesgoGrid = document.querySelector(".riesgo-grid");
-      if (riesgoGrid) {
-        const items = riesgoGrid.querySelectorAll(".riesgo-item");
-        riesgoGrid.addEventListener("mouseenter", () => {
-          items.forEach(item => item.style.opacity = "0.4");
-        });
-        riesgoGrid.addEventListener("mouseleave", () => {
-          items.forEach(item => item.style.opacity = "1");
-        });
-        items.forEach(item => {
-          item.addEventListener("mouseenter", () => item.style.opacity = "1");
-        });
-      }
-
-      // ── 6. OPERACIONES — hover dim siblings ────────────────────────────────
-      const opList = document.querySelector(".operaciones-list");
-      if (opList) {
-        const opItems = opList.querySelectorAll(".op-item");
-        opList.addEventListener("mouseenter", () => {
-          opItems.forEach(i => gsap.to(i, { opacity: 0.4, duration: 0.25 }));
-        });
-        opList.addEventListener("mouseleave", () => {
-          opItems.forEach(i => gsap.to(i, { opacity: 1, duration: 0.25 }));
-        });
-        opItems.forEach(item => {
-          item.addEventListener("mouseenter", () => gsap.to(item, { opacity: 1, duration: 0.15 }));
-        });
-      }
-
-      // ── 7. CAPITAL GRID — same pattern ────────────────────────────────────
-      const capitalGrid = document.querySelector(".capital-grid");
-      if (capitalGrid) {
-        const capItems = capitalGrid.querySelectorAll(".cap-item");
-        capitalGrid.addEventListener("mouseenter", () => {
-          capItems.forEach(i => i.style.opacity = "0.5");
-        });
-        capitalGrid.addEventListener("mouseleave", () => {
-          capItems.forEach(i => i.style.opacity = "1");
-        });
-        capItems.forEach(item => {
-          item.addEventListener("mouseenter", () => item.style.opacity = "1");
-        });
-      }
-
-      // ── 8. PRINCIPIO — fade-in ─────────────────────────────────────────────
-      const principio = document.querySelector(".principio-quote");
-      if (principio) {
-        gsap.fromTo(principio,
-          { autoAlpha: 0, y: 20 },
-          {
-            autoAlpha: 1, y: 0,
-            duration: 1.1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: principio, start: "top 65%" }
-          }
-        );
-      }
-
       return () => {
         // Cleanup on mm context dispose
         if (canvasBg) canvasBg.destroy?.();
