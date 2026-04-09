@@ -456,26 +456,49 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   ORBIT DIAGRAM
+   ORBIT DIAGRAM — scroll-driven, sticky on desktop (Figma: 1200×750 / card)
 ───────────────────────────────────────────────────────────────────────────── */
-.orbit-section {
-  background-color: var(--color-cream);
+
+/* Scroll parent — provides the scroll distance for 3 cards */
+.orbit-scroll-parent {
   border-top: 1px solid var(--color-border);
-  padding: 6rem var(--margin);
-  overflow: hidden;
+}
+@media (min-width: 800px) {
+  .orbit-scroll-parent {
+    height: calc(750px * 3); /* 3 cards × 750px */
+  }
 }
 
+/* Section — sticky on desktop, height 750px (Figma frame) */
+.orbit-section {
+  background-color: var(--color-cream);
+  overflow: hidden;
+  position: relative;
+}
+@media (min-width: 800px) {
+  .orbit-section {
+    position: sticky;
+    top: 0;
+    height: 750px;
+  }
+}
+
+/* Wrap — full-width, fills section height */
 .orbit-wrap {
   position: relative;
-  max-width: 680px;
-  margin: 0 auto;
-  min-height: 380px;
+  width: 100%;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+@media (min-width: 800px) {
+  .orbit-wrap {
+    height: 750px;
+  }
+}
 
-/* Cards */
+/* Cards — GSAP controls opacity/transform, no CSS transitions */
 .orbit-card {
   position: absolute;
   inset: 0;
@@ -484,21 +507,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 3rem;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.7s var(--ease-expo-out), transform 0.7s var(--ease-expo-out);
+  padding: 0 var(--margin);
   pointer-events: none;
+  will-change: opacity, transform;
 }
-.orbit-card--active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
+.orbit-card--active { pointer-events: auto; }
 
 .orbit-card__icon {
-  color: rgba(15,19,26,0.35);
-  margin-bottom: 1.25rem;
+  color: rgba(15,19,26,0.30);
+  margin-bottom: 1.5rem;
 }
 
 .orbit-card__title {
@@ -516,53 +533,66 @@
   color: var(--color-grey);
   line-height: var(--lh-loose);
   font-weight: 300;
-  max-width: 28rem;
+  max-width: 26rem;
 }
 
-/* Ellipse ring */
+/* Ring container — fills orbit-wrap */
 .orbit-ring {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+
+/* Ellipse — CSS fallback; GSAP overrides transform for rotation */
 .orbit-ring__ellipse {
   position: absolute;
-  inset: 10px 0;
-  border: 1px solid rgba(15,19,26,0.12);
+  inset: 40px 0;
+  border: 1px solid rgba(15,19,26,0.10);
   border-radius: 50%;
-  transform: scaleX(1.6) scaleY(0.55);
+  transform: scaleX(1.25) scaleY(0.58);
+  transform-origin: center center;
+  will-change: transform;
 }
 
-/* 4 directional arrow-dots */
+/* 4 directional arrow-dots — positioned to match Figma ellipse bounds */
 .orbit-ring__dot {
   position: absolute;
   width: 0;
   height: 0;
   border-style: solid;
 }
+/* N and S dots repositioned to match ellipse top/bottom visual bounds */
+/* At 750px wrap: center=375, ellipse inset=40px → DOM 670px tall → scaleY×0.58 = 389px visual height → half=194px */
+/* N: 375−194=181px from top · S: 375+194=569px from top = 181px from bottom */
 .orbit-ring__dot--n {
-  top: 10px; left: 50%;
+  top: 174px; left: 50%;
   transform: translateX(-50%);
   border-width: 0 5px 8px 5px;
-  border-color: transparent transparent rgba(15,19,26,0.25) transparent;
+  border-color: transparent transparent rgba(15,19,26,0.22) transparent;
 }
 .orbit-ring__dot--s {
-  bottom: 10px; left: 50%;
+  bottom: 174px; left: 50%;
   transform: translateX(-50%);
   border-width: 8px 5px 0 5px;
-  border-color: rgba(15,19,26,0.25) transparent transparent transparent;
+  border-color: rgba(15,19,26,0.22) transparent transparent transparent;
 }
 .orbit-ring__dot--e {
   right: 0; top: 50%;
   transform: translateY(-50%);
   border-width: 5px 0 5px 8px;
-  border-color: transparent transparent transparent rgba(15,19,26,0.25);
+  border-color: transparent transparent transparent rgba(15,19,26,0.22);
 }
 .orbit-ring__dot--w {
   left: 0; top: 50%;
   transform: translateY(-50%);
   border-width: 5px 8px 5px 0;
-  border-color: transparent rgba(15,19,26,0.25) transparent transparent;
+  border-color: transparent rgba(15,19,26,0.22) transparent transparent;
+}
+/* Mobile dot positions for 500px wrap height */
+@media (max-width: 799px) {
+  /* center=250, inset=40 → DOM 420px, scaleY×0.58=244px, half=122px → N: 250-122=128 */
+  .orbit-ring__dot--n { top: 120px; }
+  .orbit-ring__dot--s { bottom: 120px; }
 }
 
 /* ─── MOBILE overrides ────────────────────────────────────────────────────────── */
@@ -574,5 +604,5 @@
   .metodo-part2__title { height: auto; padding: 3rem var(--margin); font-size: var(--text-36); }
   .metodo-part2__content { padding: 2rem var(--margin) 4rem; background: none; }
   #metodologia { background-color: var(--color-black); padding: 0; }
-  .orbit-wrap { min-height: 420px; }
+  .orbit-wrap { height: 500px; }
 }
